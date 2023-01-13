@@ -1,0 +1,121 @@
+
+
+
+/*=========================================================================
+【1-3-3】応募者管理画面 (oubo_detail.html)
+=========================================================================*/
+.profile_icon{
+    height: 50px;
+}
+
+/* .oubo_name{
+
+} */
+.oubo_name_kanji{
+    font-size: 20px;
+    font-weight: bold;
+}
+.oubo_name_kana{
+    font-size: 11px;
+}
+
+.oubo_status_header{
+    height:50px;
+}
+
+.oubo_status_header_text{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.area_status{
+    background-color: #F5F5F5;
+}
+.area_status_num{
+    padding: 10px;
+}
+
+.contact_history_table{
+    border-collapse:collapse;
+}
+
+.contact_history_table tr{
+    border-bottom: 1px solid #C6E0F7;
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.oubo_link_table {
+    max-width: 100%;
+    border-collapse: collapse;
+}
+.oubo_link_table th,
+.oubo_link_table td {
+    padding: 3px 2px;
+    border: 1px solid #cce7ff;
+}
+
+.oubo_link_table th {
+    background-color: #cce7ff;
+}
+
+thead {
+    text-align: center;
+}
+
+tbody {
+    font-size: 15px;
+}
+
+th:nth-child(1) {
+    width: 4%;
+}
+td:nth-child(1) {
+    text-align: center;
+}
+th:nth-child(2) {
+    width: 10%;
+}
+th:nth-child(3) {
+    width: 10%;
+}
+th:nth-child(4) {
+    width: 6%;
+}
+th:nth-child(5) {
+    width: 8%;
+}
+th:nth-child(6) {
+    width: 5%;
+}
+th:nth-child(7) {
+    width: 8%;
+}
+th:nth-child(8) {
+    width: 8%;
+}
+th:nth-child(9) {
+    width: 19%;
+}
+th:nth-child(10) {
+    width: 19%;
+}
+th:nth-child(11) {
+    width: 3%;
+}
+td:nth-child(11) {
+    text-align: center;
+}
