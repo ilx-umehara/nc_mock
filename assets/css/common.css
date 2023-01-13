@@ -1,3 +1,4 @@
+/* ===================== style initial ===================== */
 body {
     margin: initial;
 }
@@ -16,6 +17,15 @@ li{
 
 p {
     margin: initial;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td{
+    padding: initial;
 }
 
 /* ===================== width(percent) ===================== */
@@ -580,6 +590,12 @@ p {
 /* ===================== layout ===================== */
 .text-align_center{
     text-align: center;
+}
+.text-align_left{
+    text-align: left;
+}
+.text-align_right{
+    text-align: right;
 }
 .justfy-content_center{
     justify-content: center;
