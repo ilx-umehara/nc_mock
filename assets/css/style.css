@@ -12,7 +12,7 @@
 
 } */
 .oubo_name_kanji{
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 .oubo_name_kana{
@@ -37,7 +37,7 @@
 
 .contact_history{
     width: 100%;
-    height: 480px;
+    height: 430px;
     overflow-y:scroll;
 }
 
@@ -92,17 +92,24 @@
 }
 .area_num_table{
     width: 100%;
-    height: 480px;
+    /* height: 480px; */
     overflow-y: scroll;
 }
 .area_num_table tr:nth-child(odd) td{
     background-color: #F5F5F5;
     height: 30px;
 }
+.area_num_table tr:nth-child(even) td{
+    background-color: #FFFFFF;
+    height: 30px;
+}
 .area_num_table tr td{
     vertical-align: top;
 }
 
+.list_right{
+    font-weight: bold;
+}
 
 
 
@@ -131,7 +138,7 @@
 }
 
 .oubo_link_table .oubo_link_table tbody {
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .oubo_link_table th:nth-child(1) {
