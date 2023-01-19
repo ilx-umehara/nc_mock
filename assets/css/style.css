@@ -50,6 +50,11 @@
     height: 60px;
 }
 
+.tab-panel{
+    font-size: 0.8em;
+    width: 37%;
+}
+
 .tab-group{
     display: flex;
     justify-content: center;
@@ -58,16 +63,16 @@
     flex-grow: 1;
     padding:5px;
     list-style:none;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 0.25rem 0.25rem 0 0;
     background:#DDDDDD;
     text-align:center;
     cursor:pointer;
-    -webkit-filter: drop-shadow(0px 10px 10px rgba(199, 217, 233, 1));
-    filter: drop-shadow(0px 0px 10px rgba(199, 217, 233, 1));
+    /* -webkit-filter: drop-shadow(0px 10px 10px rgba(199, 217, 233, 1));
+    filter: drop-shadow(0px 0px 10px rgba(199, 217, 233, 1)); */
 }
 .panel-group{
-    height: 829px;
-    border-radius: 0px 0px 20px 20px;
+    height: 826px;
+    border-radius: 0 0 0.25rem 0.25rem;
     border-top:none;
     background:#FFFFFF;
     padding: 15px 40px 30px 40px;
@@ -111,6 +116,63 @@
     font-weight: bold;
 }
 
+.appli-history_table{
+    font-size: 0.8rem;
+}
+.appli-history_table tr td{
+    padding: 10px;
+}
+
+.appli-history_table tr:nth-child(odd) td{
+    background-color: #F5F5F5;
+    height: 30px;
+}
+.appli-history_table tr:nth-child(even) td{
+    background-color: #FFFFFF;
+    height: 30px;
+}
+.appli-history_table td:nth-child(1) {
+    text-align: center;
+}
+.appli-history_table td:nth-child(2) {
+
+}
+.appli-history_table td:nth-child(3) {
+
+}
+.appli-history_table td:nth-child(4) {
+
+}
+.appli-history_table td:nth-child(5) {
+
+}
+.appli-history_table td:nth-child(6) {
+
+}
+.appli-history_table td:nth-child(7) {
+
+}
+.appli-history_table td:nth-child(8) {
+
+}
+.appli-history_table td:nth-child(9) {
+
+}
+.appli-history_table td:nth-child(10) {
+
+}
+.appli-history_table td:nth-child(11) {
+
+}
+.appli-history_table td:nth-child(12) {
+
+}
+.appli-history_table td:nth-child(13) {
+
+}
+
+
+
 
 
 
@@ -143,8 +205,6 @@
 
 .oubo_link_table th:nth-child(1) {
     width: 4%;
-}
-.oubo_link_table td:nth-child(1) {
     text-align: center;
 }
 .oubo_link_table th:nth-child(2) {
@@ -176,7 +236,11 @@
 }
 .oubo_link_table th:nth-child(11) {
     width: 3%;
-}
-td:nth-child(11) {
     text-align: center;
 }
+
+.options{
+    /* margin-left: 20px; */
+}
+
+

@@ -9,6 +9,101 @@ body {
     background-color: #f1f6fb;
 }
 
+/* オーバーレイ */
+.overlay {
+    /* 位置を固定 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* 画面いっぱいに広がるようにする */
+    width: 100%;
+    height: 100vh;
+    /* rgbaを使って60%の黒いオーバーレイにする */
+    background: rgba(0, 0, 0, 0.6);  
+    /* デフォルトでは見えないようにする */
+    opacity: 0;
+    visibility: hidden;
+    /* 表示する際の変化の所要時間 */
+    transition: .3s;
+    z-index: 10;
+}
+/* activeクラスのついたオーバーレイ */
+.overlay.active {
+    /* activeクラスがついたときにオーバーレイを表示する */
+    opacity: 1;
+    visibility: visible;
+}
+/* モーダルウィンドウ */
+.modal_regist-new-contact {
+    font-size: 1rem;
+    position: fixed;
+    z-index: 11;
+    max-width: 80%;
+    width: 75%;
+    border-radius: 0.25rem;
+    padding: 15px 20px;
+    background: #fff;
+    /* 位置の調整(真ん中に表示) */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* デフォルトでは非表示にしておく */
+    opacity: 0;
+    visibility: hidden;
+    /* 表示の変化にかかる時間 */
+    transition: .3s;
+    
+}
+
+  /* activeクラスのついたモーダルウィンドウ */
+.modal_regist-new-contact.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal_regist-new-contact .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+/* モーダルウィンドウ */
+.modal {
+    position: fixed;
+    z-index: 11;
+    max-width: 80%;
+    width: 75%;
+    border-radius: 0.25rem;
+    padding: 15px 20px;
+    background: #fff;
+    /* 位置の調整(真ん中に表示) */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* デフォルトでは非表示にしておく */
+    opacity: 0;
+    visibility: hidden;
+    /* 表示の変化にかかる時間 */
+    transition: .3s;
+    
+}
+
+  /* activeクラスのついたモーダルウィンドウ */
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
 .content_index {
     width: 150px;
     height: 30px;
@@ -28,11 +123,41 @@ body {
     padding: 2%;
 }
 
+.my-parts {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	border: 1px solid rgba(0,0,0,.1);
+	cursor: pointer;
+}
+.my-parts span::before,
+.my-parts span::after {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 84%;
+	height: 16%;
+	margin: -8% 0 0 -42%;
+	background: #999999;
+}
+.my-parts span::before {
+	transform: rotate(-45deg);
+}
+.my-parts span::after {
+	transform: rotate(45deg);
+}
+
+
+
+
 .content_block {
     background-color: #ffffff;
     font-size: 0.8em;
     padding: 15px 40px 30px 40px;
-    border-radius: 20px;
+    border-radius: 0.25rem;
     -webkit-filter: drop-shadow(0px 10px 10px rgba(199, 217, 233, 1));
     filter: drop-shadow(0px 0px 10px rgba(199, 217, 233, 1));
 }

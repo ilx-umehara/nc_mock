@@ -23,9 +23,29 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+th{
+    font-weight: initial;
+}
 
 td{
     padding: initial;
+}
+
+
+/* ===================== input form ===================== */
+input[type="text"]{
+    height:24px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+}
+textarea {
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    min-width: 500px;
+    max-width: 600px;
+    min-height: 200px;
+    max-height: 600px;
 }
 
 /* ===================== width(percent) ===================== */
@@ -743,6 +763,13 @@ td{
     padding-right: 100px;
 }
 
+.pa5{
+    padding: 5px;
+}
+.pa10{
+    padding: 10px;
+}
+
 
 /* ===================== display ===================== */
 
@@ -772,7 +799,12 @@ td{
 .justfy-content_space-around{
     justify-content: space-around;
 }
-
+.justfy-content_flex-start{
+    justify-content: flex-start;
+}
+.justfy-content_flex-end{
+    justify-content: flex-end;
+}
 .align-item_center{
     align-items: center;
 }
@@ -787,4 +819,14 @@ td{
 .color_red{
     color: #A30B00;
 }
+.color_gray{
+    color: #707070;
+}
+.bold{
+    font-weight: bold;
+}
 
+/* ===================== background-color ===================== */
+.bgc_list-odd{
+    background-color: #F5F5F5;
+}

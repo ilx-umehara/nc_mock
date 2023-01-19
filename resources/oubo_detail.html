@@ -8,9 +8,226 @@
         <link href="../assets/css/common.css" rel="stylesheet" />
         <link href="../assets/css/template.css" rel="stylesheet" />
         <link href="../assets/css/style.css" rel="stylesheet" />
+
         <title>応募者管理&nbsp;|&nbsp;ふぁん君</title>
     </head>
     <body>
+    
+    <div class="overlay"></div>
+    <div id="modal_regist-new-contact" class="modal modal_regist-new-contact">
+        <div class="flex justfy-content_space-between">
+            <p class="content_block_title mb40">コンタクト入力</p>
+            <!-- <button id="close-modal_show-appli-history" class="close-modal_show-appli-history"></button> -->
+            <div id="close-modal_regist-new-contact" class="my-parts"><span></span></div>
+        </div>
+        <!-- <button id="close-modal_regist-new-contact" class="close-modal_regist-new-contact">閉じる</button> -->
+        <ul class="input_form_contact">
+            <li class="flex bgc_list-odd">
+                <div class="w25per pa10">
+                    <p class="ml30">■アクション</p>
+                </div>
+                <div class="pa10">
+                    <label for="action_1" class="options">
+                        <input type="radio" id="action_1" name="contact_action" value="1">コール(未接触)
+                    </label>
+                    <label for="action_2" class="options ml30">
+                        <input type="radio" id="action_2" name="contact_action" value="2">コール(接触)
+                    </label>
+                    <label for="action_3" class="options ml30">
+                        <input type="radio" id="action_3" name="contact_action" value="3">入電
+                    </label>
+                    <label for="action_4" class="options ml30">
+                        <input type="radio" id="action_4" name="contact_action" value="4">その他(対面など)
+                    </label>
+                </div>
+            </li>
+            <li class="flex">
+                <div class="w25per pa10">
+                    <p class="ml30">■進捗</p>
+                </div>
+                <div class="pa10">
+                    <div class="pb10">
+                        <label for="progress_1" class="options">
+                            <input type="radio" id="progress_1" name="contact_progress" value="1">未対応
+                        </label>
+                        <label for="progress_2" class="options ml30">
+                            <input type="radio" id="progress_2" name="contact_progress" value="2">呼び込み中
+                        </label>
+                        <label for="progress_3" class="options ml30">
+                            <input type="radio" id="progress_3" name="contact_progress" value="3">登録完了
+                        </label>
+                        <label for="progress_4" class="options ml30">
+                            <input type="radio" id="progress_4" name="contact_progress" value="4">その他(対面など)
+                        </label>
+                    </div>
+                    <div class="pb10">
+                        <label for="progress_5" class="options">
+                            <input type="radio" id="progress_5" name="contact_progress" value="5">辞退&emsp;
+                        </label>
+                        &emsp;理由：<input type="text" name="reason_for_declining" class="w300px">
+                        
+                    </div>
+                    <div class="pb10">
+                        <label for="progress_6" class="options">
+                            <input type="radio" id="progress_6" name="contact_progress" value="6">対象外
+                        </label>
+                        &emsp;理由：<input type="text" name="reason_for_exclusion" class="w300px">
+                    </div>
+                </div>
+            </li>
+            <li class="flex bgc_list-odd">
+                <div class="w25per pa10">
+                    <p class="ml30">■本人確認書類</p>
+                </div>
+                <div class="pa10">
+                    <label for="identification_1">
+                        <input type="radio" id="identification_1" name="identification_documents" value="1">未対応(依頼前)
+                    </label>
+                    <label for="identification_2" class="options ml30">
+                        <input type="radio" id="identification_2" name="identification_documents" value="2">提示依頼済み
+                    </label>
+                    <label for="identification_3" class="options ml30">
+                        <input type="radio" id="identification_3" name="identification_documents" value="3">提示・確認済み
+                    </label>
+                </div>
+            </li>
+            <li class="flex">
+                <div class="w25per pa10">
+                    <p class="ml30">■ネット予約</p>
+                </div>
+                <div class="pa10 flex align-item_center">
+                    <label for="book_online_1" class="checkbox-wrapper">
+                        <input type="checkbox" id="book_online_1" name="book_online" class="checkbox-input" value="1">
+                        <span class="checkbox-tile">初回版再送</span>
+                    </label>
+                    <label for="book_online_2" class="checkbox-wrapper ml30">
+                        <input type="checkbox" id="book_online_2" name="book_online" class="checkbox-input" value="2">
+                        <span class="checkbox-tile">追加版送付</span>
+                    </label>
+                </div>
+            </li>
+            <li class="flex bgc_list-odd">
+                <div class="w25per pa10">
+                    <p class="ml30">■Webエントリー</p>
+                </div>
+                <div class="pa10 flex align-item_center">
+                    <label for="web_entry_1" class="checkbox-wrapper">
+                        <input type="checkbox" id="web_entry_1" name="web_entry" class="checkbox-input" value="1">
+                        <span class="checkbox-tile">案内メール送信</span>
+                    </label>
+                    <label for="web_entry_2" class="checkbox-wrapper ml30">
+                        <input type="checkbox" id="web_entry_2" name="web_entry" class="checkbox-input" value="2">
+                        <span class="checkbox-tile">代理予約</span>
+                    </label>
+                    <label for="web_entry_3" class="checkbox-wrapper ml30">
+                        <input type="checkbox" id="web_entry_3" name="web_entry" class="checkbox-input" value="3">
+                        <span class="checkbox-tile">汎用メール送信</span>
+                    </label>
+                </div>
+            </li>
+            <li class="flex">
+                <div class="w25per pa10">
+                    <p class="ml30">■コミュニケーション</p>
+                </div>
+                <div class="pa10">
+                    <textarea cols="40" rows="10"></textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="modal_show-appli-history" class="modal modal_regist-new-contact">
+        <div class="flex justfy-content_space-between">
+            <p class="content_block_title mb40">応募履歴一覧</p>
+            <!-- <button id="close-modal_show-appli-history" class="close-modal_show-appli-history"></button> -->
+            <div id="close-modal_show-appli-history" class="my-parts"><span></span></div>
+        </div>
+
+        <table class="appli-history_table w100per">
+            <thead>
+                <tr class="header_border-line">
+                    <th>Alive</th>
+                    <th>応募日</th>
+                    <th>応募時年齢</th>
+                    <th>応募支店</th>
+                    <th>媒体</th>
+                    <th>有効・無効</th>
+                    <th>最終ステータス</th>
+                    <th>名前</th>
+                    <th>生年月日</th>
+                    <th>性別</th>
+                    <th>住所</th>
+                    <th>電話番号</th>
+                    <th>メールアドレス</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="color_gray">
+                    <td>&nbsp;&nbsp;</td>
+                    <td>2022年<br>01月28日</td>
+                    <td>22歳</td>
+                    <td>NC渋谷</td>
+                    <td>ウェブアグレ</td>
+                    <td>無効(同時)</td>
+                    <td></td>
+                    <td>応募&nbsp;花子</td>
+                    <td>2000年<br>01月01日</td>
+                    <td>女性</td>
+                    <td>東京都中央区日本橋人形町3-3-13<br>人形町フォレストビル2F</td>
+                    <td>090-3333-3333</td>
+                    <td>oubo@ilovex.co.jp</td>
+                </tr>
+                <tr class="bold">
+                    <td>★</td>
+                    <td>2022年<br>01月28日</td>
+                    <td>22歳</td>
+                    <td>NC渋谷</td>
+                    <td>バイトルドットコム</td>
+                    <td>有効</td>
+                    <td></td>
+                    <td>応募&nbsp;花子</td>
+                    <td>2000年<br>01月01日</td>
+                    <td>女性</td>
+                    <td>東京都中央区日本橋人形町3-3-13<br>人形町フォレストビル2F</td>
+                    <td>090-3333-3333</td>
+                    <td>oubo@ilovex.co.jp</td>
+                </tr>
+                <tr class="color_gray">
+                    <td>&nbsp;&nbsp;</td>
+                    <td>2021年<br>12月28日</td>
+                    <td>21歳</td>
+                    <td>NC渋谷</td>
+                    <td>マイナビバイト</td>
+                    <td>無効</td>
+                    <td>来社せず</td>
+                    <td>応募&nbsp;花子</td>
+                    <td>2000年<br>01月01日</td>
+                    <td>女性</td>
+                    <td>新潟県新潟市中央区上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
+                    <td>090-3333-3333</td>
+                    <td>oubo_fake_dummy@ilovex.co.jp</td>
+                </tr>
+                <tr class="color_gray">
+                    <td>&nbsp;&nbsp;</td>
+                    <td>2020年<br>07月15日</td>
+                    <td>20歳</td>
+                    <td>NC渋谷</td>
+                    <td>おうぼ受ける君</td>
+                    <td>無効</td>
+                    <td>来社せず</td>
+                    <td>山田&nbsp;花子</td>
+                    <td>2000年<br>01月01日</td>
+                    <td>女性</td>
+                    <td>新潟県新潟市中央区上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
+                    <td>090-3333-3333</td>
+                    <td>oubo_fake_dummy@ilovex.co.jp</td>
+                </tr>
+            </tbody>
+        </table>
+        
+
+    </div>
+
         <div class="header">
             <div class="three-block-left humburger-menu">
                 <!-- ハンバーガーメニューの線 -->
@@ -24,18 +241,21 @@
             </div>
             <div class="three-block-right"></div>
         </div>
-
         <div class="wrapper flex">
-
             <div class="w60per">
                 <div class="content_block h300px flex ml20">
                     <div class="base_profile w50per">
-                        <div class="flex align-item_center">
-                            <img src="../assets/images/person_circle_woman.svg" class="profile_icon inline-block" alt="アイコン">
-                            <div class="oubo_name pl10 text-align_center">
-                                <p class="oubo_name_kana">オウボ&emsp;ハナコ</p>
-                                <p class="oubo_name_kanji">応募&emsp;花子</p>
+                        <div class="flex justfy-content_flex-start align-item_center">
+                            <div class="flex align-item_center">
+                                <img src="../assets/images/person_circle_woman.svg" class="profile_icon inline-block" alt="アイコン">
+                                <div class="oubo_name pl10 text-align_center">
+                                    <p class="oubo_name_kana">オウボ&emsp;ハナコ</p>
+                                    <p class="oubo_name_kanji">応募&emsp;花子</p>
+                                </div>
                             </div>
+
+                            <button id="btn_show-appli-history" class="btn-small btn_purple w100px ml30">応募履歴</button>
+                            
                         </div>
                         <div class="oubo_base_info">
                             <ul class="mt15 pl40">
@@ -45,7 +265,7 @@
                                 </li>
                                 <li class="flex mt5">
                                     <p class="inline-block w40per list_left">生年月日</p>
-                                    <p class="inline-block w40per list_right">2000年01月01日&nbsp;(27歳)</p>
+                                    <p class="inline-block w40per list_right">2000年01月01日&nbsp;(23歳)</p>
                                 </li>
                                 <li class="flex mt5">
                                     <p class="inline-block w40per list_left">性別</p>
@@ -117,7 +337,7 @@
                 <div class="content_block h500px mt20 ml20">
                     <div class="flex justfy-content_space-between">
                         <p class="content_block_title mb40">コンタクト履歴</p>
-                        <button class="light_green_btn w160px">新規登録</button>
+                        <button id="btn_regist-new-contact" class="btn-normal btn_light-green w160px">新規登録</button>
                     </div>
 
                     <div class="contact_history">
@@ -344,10 +564,11 @@
                     <li class="tab tab-area_4">エリア4</li>
                 </ul>
                 <div class="panel-group">
+                    <!-- <div id="like_button_container"></div> -->
                     <div class="panel tab-area_1 is-show">
                         <div class="flex justfy-content_space-between">
                             <p class="content_block_title mb40">エントリー情報</p>
-                            <button class="light_green_btn w100px">編集</button>
+                            <button class="btn-normal btn_light-green  w100px">編集</button>
                         </div>
                         <div class="area_num">
                             <table class="area_num_table w100per">
@@ -486,7 +707,7 @@
                     <div class="panel tab-area_2">
                         <div class="flex justfy-content_space-between">
                             <p class="content_block_title mb40">エントリー情報</p>
-                            <button class="light_green_btn w100px">編集</button>
+                            <button class="btn-normal btn_light-green  w100px">編集</button>
                         </div>
                         <div class="area_num">
                             <table class="area_num_table w100per">
@@ -818,7 +1039,7 @@
                     <div class="panel tab-area_3">
                         <div class="flex justfy-content_space-between">
                             <p class="content_block_title mb40">エントリー情報</p>
-                            <button class="light_green_btn w100px">編集</button>
+                            <button class="btn-normal btn_light-green  w100px">編集</button>
                         </div>
                         <div class="area_num">
                             <table class="area_num_table w100per">
@@ -932,7 +1153,7 @@
                     <div class="panel tab-area_4">
                         <div class="flex justfy-content_space-between">
                             <p class="content_block_title mb40">エントリー情報</p>
-                            <button class="light_green_btn w100px">編集</button>
+                            <button class="btn-normal btn_light-green  w100px">編集</button>
                         </div>
                         <div class="area_num">
                             <table class="area_num_table w100per">
@@ -1042,6 +1263,13 @@
         <footer>
             <div>Copyright(c) NEO CARRER Corporation. All Rights Reserved</div>
         </footer>
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
+        <!-- Load our React component. -->
+        <script src="like_button.js"></script>
+        <script src="../assets/js/regist-new-contact-history.js"></script>
     </body>
 </html>
