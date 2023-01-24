@@ -859,3 +859,7 @@ label input{
 .bgc_list-odd{
     background-color: #F5F5F5;
 }
+
+.border_b_g{
+    border-bottom: 1px solid #F0F0F0;
+}

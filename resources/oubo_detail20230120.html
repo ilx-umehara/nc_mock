@@ -12,8 +12,10 @@
         <title>応募者管理&nbsp;|&nbsp;ふぁん君</title>
     </head>
     <body>
-    
+    <!-- モーダルのオーバーレイ ここから -->
     <div class="overlay"></div>
+    <!-- モーダルのオーバーレイ ここまで -->
+    <!-- コンタクト履歴のモーダル ここから -->
     <div id="modal_regist-new-contact" class="modal modal_window">
         <div class="flex justfy-content_space-between">
             <p class="content_block_title mb40">コンタクト入力</p>
@@ -138,13 +140,14 @@
             <button id="close-modal_regist-new-contact" class="btn-large btn_light-green w180px">登録する</button>
         </div>
     </div>
+    <!-- コンタクト履歴のモーダル ここまで -->
+    <!-- 応募履歴のモーダル ここから -->
     <div id="modal_show-appli-history" class="modal modal_window">
         <div class="flex justfy-content_space-between">
             <p class="content_block_title mb40">応募履歴一覧</p>
             <!-- <button id="close-modal_show-appli-history" class="close-modal_show-appli-history"></button> -->
             <div id="close-modal_show-appli-history" class="my-parts"><span></span></div>
         </div>
-
         <table class="appli-history_table w100per">
             <thead>
                 <tr class="header_border-line">
@@ -240,6 +243,8 @@
             </tbody>
         </table>
     </div>
+    <!-- 応募履歴のモーダル ここまで -->
+    <!-- エントリー情報編集のモーダル ここから -->
     <div id="modal_edit-entry-info" class="modal modal_window">
         <div class="flex justfy-content_space-between">
             <p class="content_block_title mb40">エントリー情報編集</p>
@@ -1029,68 +1034,82 @@
                 </div>
             </div>
         </div>
-        <div class="flex justfy-content_center mt20 mb20">
-            <button id="close-modal_edit-entry-info" class="btn-large btn_light-green w180px">編集する</button>
+        <div class="flex justfy-content_space-around mt20 mb20">
+            <label for="complete_entry_info" class="form-checkbox flex align-item_center">
+                <input type="checkbox" id="complete_entry_info" name="complete_entry_info">
+                <span class="pl10">最終版として確定する</span>
+                
+            </label>
+            <button id="close-modal_edit-entry-info" class="btn-large btn_light-green w180px">更新する</button>
         </div>
     </div>
+    <!-- エントリー情報編集のモーダル ここまで -->
+    <!-- 修正依頼の送信のモーダル ここから -->
     <div id="modal_send-correction-request" class="modal modal_window">
         <div class="flex justfy-content_space-between">
             <p class="content_block_title mb40">修正依頼の送信</p>
             <div id="close-modal_send-correction-request" class="my-parts"><span></span></div>
         </div>
-        <div>
-            <div>
+        <div class="content_area">
+            <div class="border_b_g pb10">
                 <h3>エリア1</h3>
-                <label for="request_area-1" class="form-checkbox inline-block">
-                    <input type="checkbox" id="request_area-1" name="" checked disabled>
-                    <span class="pl10">基本情報</span>
-                    
-                </label>
-                <span id="message_request_area-1">&emsp;※他のユーザ、管理者が申請中です。</span>
+                <div class="pl40">
+                    <label for="request_area-1" class="form-checkbox inline-block">
+                        <input type="checkbox" id="request_area-1" name="" checked disabled>
+                        <span class="pl10">基本情報<span id="message_request_area-1">&emsp;※他のユーザ、管理者が申請中です。</span></span>
+                    </label>
+                </div>
             </div>
-            <div class="flex column">
+            <div class="flex column border_b_g pb10">
                 <h3>エリア2</h3>
-                <label for="request_area-2_1" class="form-checkbox inline-block">
-                    <input type="checkbox" id="request_area-2_1" name="" >
-                    <span class="pl10">資格情報</span>
-                    <!-- <span id="message_request_area-2_1">※他のユーザ、管理者が申請中です。</span> -->
-                </label>
-                <label for="request_area-2_2" class="form-checkbox inline-block">
-                    <input type="checkbox" id="request_area-2_2" name="" checked disabled>
-                    <span class="pl10">希望条件</span>
-                    <span id="message_request_area-2_2">&emsp;※他のユーザ、管理者が申請中です。</span>
-                </label>
-                <label for="request_area-2_3" class="form-checkbox inline-block">
-                    <input type="checkbox" id="request_area-2_3" name="" >
-                    <span class="pl10">職務経歴</span>
-                    <!-- <span id="message_request_area-2_3">※他のユーザ、管理者が申請中です。</span> -->
-                </label>
-                <label for="request_area-2_4" class="form-checkbox inline-block">
-                    <input type="checkbox" id="request_area-2_4" name="" >
-                    <span class="pl10">その他</span>
-                    <!-- <span id="message_request_area-2_4">※他のユーザ、管理者が申請中です。</span> -->
-                </label>
+                <div class="pl40">
+                    <label for="request_area-2_1" class="form-checkbox inline-block">
+                        <input type="checkbox" id="request_area-2_1" name="" >
+                        <span class="pl10">資格情報<span id="message_request_area-2_1">&emsp;※他のユーザ、管理者が申請中です。</span></span>
+                    </label>
+                </div>
+                <div class="pl40">
+                    <label for="request_area-2_2" class="form-checkbox inline-block">
+                        <input type="checkbox" id="request_area-2_2" name="" checked disabled>
+                        <span class="pl10">希望条件<span id="message_request_area-2_2">&emsp;※他のユーザ、管理者が申請中です。</span></span>
+                    </label>
+                </div>
+                <div class="pl40">
+                    <label for="request_area-2_3" class="form-checkbox inline-block">
+                        <input type="checkbox" id="request_area-2_3" name="" >
+                        <span class="pl10">職務経歴<span id="message_request_area-2_3">&emsp;※他のユーザ、管理者が申請中です。</span></span>
+                    </label>
+                </div>
+                <div class="pl40">
+                    <label for="request_area-2_4" class="form-checkbox inline-block">
+                        <input type="checkbox" id="request_area-2_4" name="" >
+                        <span class="pl10">その他<span id="message_request_area-2_4">&emsp;※他のユーザ、管理者が申請中です。</span></span>
+                    </label>
+                </div>
             </div>
-            <div>
+            <div class="border_b_g pb10">
                 <h3>エリア3</h3>
-                <label for="request_area-3" class="form-checkbox inline-block">
-                    <input type="checkbox" id="request_area-3" name="" >
-                    <span class="pl10">基本情報</span>
-                    <!-- <span id="message_request_area-3">※他のユーザ、管理者が申請中です。</span> -->
-                </label>
+                <div class="pl40">
+                    <label for="request_area-3" class="form-checkbox inline-block">
+                        <input type="checkbox" id="request_area-3" name="" >
+                        <span class="pl10">基本情報<span id="message_request_area-3">&emsp;※他のユーザ、管理者が申請中です。</span></span>
+                    </label>
+                </div>
             </div>
-            <div>
+            <div class="border_b_g pb10">
                 <h3>エリア4</h3>
-                <label for="request_area-4" class="form-checkbox inline-block">
-                    <input type="checkbox" id="request_area-4" name="" >
-                    <span class="pl10">基本情報</span>
-                    <!-- <span id="message_request_area-4">※他のユーザ、管理者が申請中です。</span> -->
-                </label>
+                <div class="pl40">
+                    <label for="request_area-4" class="form-checkbox inline-block">
+                        <input type="checkbox" id="request_area-4" name="" >
+                        <span class="pl10">基本情報<span id="message_request_area-4">&emsp;※他のユーザ、管理者が申請中です。</span></span>
+                    </label>
+                </div>
             </div>
         </div>
-
-
     </div>
+    <!-- 修正依頼の送信のモーダル ここまで -->
+
+
         <div class="header">
             <div class="three-block-left humburger-menu">
                 <!-- ハンバーガーメニューの線 -->

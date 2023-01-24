@@ -153,6 +153,7 @@
     background:#FFFFFF;
     padding: 0px 40px 30px 40px;
     border: 1px solid #E0E0E0;
+    height: 600px;
     /* -webkit-filter: drop-shadow(0px 10px 10px rgba(199, 217, 233, 1));
     filter: drop-shadow(0px 10px 10px rgba(199, 217, 233, 1)); */
 }
@@ -335,6 +336,10 @@
     height: 850px;
 }
 
+#modal_send-correction-request{
+
+}
+
 .edit_entry_info_form{
 
 }
@@ -343,8 +348,13 @@
     padding: 15px 40px 40px 40px;
     background: #FFFFFF;
 }
-
-
+.content_area{
+    padding: 20px 40px;
+}
+.content_area div label,
+.content_area div label input{
+    /* padding-left: 30px; */
+}
 
 
 
