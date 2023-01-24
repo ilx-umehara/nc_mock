@@ -179,3 +179,45 @@ window.addEventListener('DOMContentLoaded',function(){
     } 
   });
 });
+
+window.addEventListener('DOMContentLoaded',function(){
+  const qualiDate13 = document.getElementById('quali_date_13');
+  const qualification13 = document.getElementById('qualification_13');
+  qualification13.addEventListener('change', function(){
+    if(this.checked) { // ←重要なポイント！
+      qualiDate13.classList.remove('unvisible');
+      qualiDate13.classList.add('visible');
+    } else{
+      qualiDate13.classList.remove('visible');
+      qualiDate13.classList.add('unvisible');
+    } 
+  });
+});
+
+window.addEventListener('DOMContentLoaded', function(){
+  const requestArea1 = document.getElementById('request_area-1');
+  const messageRequestArea1 = docoment.getElementById('message_request_area-1');
+  if(requestArea1.disabled === true){
+    messageRequestArea1.classList.remove('unvisible');
+    messageRequestArea1.classList.add('visible');
+    console.log('表示');
+  }else{
+    messageRequestArea1.classList.remove('visible');
+    messageRequestArea1.classList.add('unvisible');
+    console.log('非表示');
+  }
+});
+
+window.addEventListener('DOMContentLoaded', function(){
+  const requestArea2_1 = document.getElementById('request_area-2_1');
+  const messageRequestArea2_1 = docoment.getElementById('message_request_area-2_1');
+  if(requestArea2_1.disabled === true){
+    messageRequestArea2_1.classList.remove('unvisible');
+    messageRequestArea2_1.classList.add('visible');
+    console.log('表示');
+  }else{
+    messageRequestArea2_1.classList.remove('visible');
+    messageRequestArea2_1.classList.add('unvisible');
+    console.log('非表示');
+  }
+});

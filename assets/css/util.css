@@ -840,6 +840,10 @@ label input{
     vertical-align:0.8em;
 }
 
+.column{
+    flex-direction: column;
+}
+
 /* ===================== font-color ===================== */
 .color_red{
     color: #A30B00;

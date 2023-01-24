@@ -1033,7 +1033,64 @@
             <button id="close-modal_edit-entry-info" class="btn-large btn_light-green w180px">編集する</button>
         </div>
     </div>
+    <div id="modal_send-correction-request" class="modal modal_window">
+        <div class="flex justfy-content_space-between">
+            <p class="content_block_title mb40">修正依頼の送信</p>
+            <div id="close-modal_send-correction-request" class="my-parts"><span></span></div>
+        </div>
+        <div>
+            <div>
+                <h3>エリア1</h3>
+                <label for="request_area-1" class="form-checkbox inline-block">
+                    <input type="checkbox" id="request_area-1" name="" checked disabled>
+                    <span class="pl10">基本情報</span>
+                    
+                </label>
+                <span id="message_request_area-1">&emsp;※他のユーザ、管理者が申請中です。</span>
+            </div>
+            <div class="flex column">
+                <h3>エリア2</h3>
+                <label for="request_area-2_1" class="form-checkbox inline-block">
+                    <input type="checkbox" id="request_area-2_1" name="" >
+                    <span class="pl10">資格情報</span>
+                    <!-- <span id="message_request_area-2_1">※他のユーザ、管理者が申請中です。</span> -->
+                </label>
+                <label for="request_area-2_2" class="form-checkbox inline-block">
+                    <input type="checkbox" id="request_area-2_2" name="" checked disabled>
+                    <span class="pl10">希望条件</span>
+                    <span id="message_request_area-2_2">&emsp;※他のユーザ、管理者が申請中です。</span>
+                </label>
+                <label for="request_area-2_3" class="form-checkbox inline-block">
+                    <input type="checkbox" id="request_area-2_3" name="" >
+                    <span class="pl10">職務経歴</span>
+                    <!-- <span id="message_request_area-2_3">※他のユーザ、管理者が申請中です。</span> -->
+                </label>
+                <label for="request_area-2_4" class="form-checkbox inline-block">
+                    <input type="checkbox" id="request_area-2_4" name="" >
+                    <span class="pl10">その他</span>
+                    <!-- <span id="message_request_area-2_4">※他のユーザ、管理者が申請中です。</span> -->
+                </label>
+            </div>
+            <div>
+                <h3>エリア3</h3>
+                <label for="request_area-3" class="form-checkbox inline-block">
+                    <input type="checkbox" id="request_area-3" name="" >
+                    <span class="pl10">基本情報</span>
+                    <!-- <span id="message_request_area-3">※他のユーザ、管理者が申請中です。</span> -->
+                </label>
+            </div>
+            <div>
+                <h3>エリア4</h3>
+                <label for="request_area-4" class="form-checkbox inline-block">
+                    <input type="checkbox" id="request_area-4" name="" >
+                    <span class="pl10">基本情報</span>
+                    <!-- <span id="message_request_area-4">※他のユーザ、管理者が申請中です。</span> -->
+                </label>
+            </div>
+        </div>
 
+
+    </div>
         <div class="header">
             <div class="three-block-left humburger-menu">
                 <!-- ハンバーガーメニューの線 -->
@@ -1190,12 +1247,11 @@
                     </ul>
                     <div class="entry-area_title-edit flex justfy-content_space-between" style="background: #FFF;">
                         <p class="content_block_title mb40">エントリー情報</p>
-                        <button id="btn_edit-entry-info" class="btn-normal btn_light-green  w100px">編集</button>
+                        <button id="btn_edit-entry-info" class="btn-normal btn_light-green w100px">編集</button>
                     </div>
                     <div class="panel-group">
                         <!-- <div id="like_button_container"></div> -->
                         <div class="panel tab-area_1 is-show">
-
                             <div class="area_num">
                                 <table class="area_num_table w100per">
                                     <tr class="w100per">
@@ -1331,7 +1387,6 @@
                             </div>
                         </div>
                         <div class="panel tab-area_2">
-
                             <div class="area_num">
                                 <div class="tab-panel_area_2">
                                     <ul class="tab-group_area_2">
@@ -1827,6 +1882,9 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                    <div class="entry_title_btn_block flex justfy-content_center pt20 pb20">
+                        <button id="btn_send-correction-request" class="btn-normal btn_blue w180px">修正依頼の送信</button>
                     </div>
                 </div>
                 <div class="content_block mt20 ml20 w45per">

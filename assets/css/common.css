@@ -55,7 +55,7 @@
 }
 
 .btn_purple{
-    color: #444054;;
+    color: #444054;
     background-color: #FFFFFF;
     border: 1px solid #444054;;
 }
@@ -63,6 +63,17 @@
 .btn_purple:hover{
     color: #FFFFFF;
     background-color: #444054;;
+}
+
+.btn_blue{
+    color: #545cd8;
+    background-color: #FFFFFF;
+    border: 1px solid #545cd8;;
+}
+
+.btn_blue:hover{
+    color: #FFFFFF;
+    background-color: #545cd8;;
 }
 
 .header_border-line{

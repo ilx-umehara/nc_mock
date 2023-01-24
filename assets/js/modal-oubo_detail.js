@@ -10,6 +10,10 @@ const btnEditEntryInfo = document.getElementById('btn_edit-entry-info');
 const modalEditEntryInfo = document.getElementById('modal_edit-entry-info');
 const closeBtnModalEditEntryInfo = document.getElementById('close-modal_edit-entry-info');
 
+const btnSendCorrectionRequest = document.getElementById('btn_send-correction-request');
+const modalSendCorrectionRequest = document.getElementById('modal_send-correction-request');
+const closeBtnModalSendCorrectionRequest = document.getElementById('close-modal_send-correction-request');
+
 const closeBtn = document.querySelector('.close');
 const overlay = document.querySelector('.overlay');
 
@@ -31,10 +35,17 @@ btnEditEntryInfo.addEventListener('click', (e) => {
   overlay.classList.add('active');
   console.log('クリックしました。');
 });
+btnSendCorrectionRequest.addEventListener('click', (e) => {
+  e.preventDefault();
+  modalSendCorrectionRequest.classList.add('active');
+  overlay.classList.add('active');
+});
+
 closeBtnModalRegistNewContact.addEventListener('click', function(){
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
+  modalSendCorrectionRequest.classList.remove('active');
   overlay.classList.remove('active');
   console.log('クリックしました。');
 });
@@ -42,6 +53,7 @@ closeBtnModalApplHistory.addEventListener('click', function(){
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
+  modalSendCorrectionRequest.classList.remove('active');
   overlay.classList.remove('active');
   console.log('クリックしました。');
 });
@@ -49,6 +61,15 @@ closeBtnModalEditEntryInfo.addEventListener('click', function(){
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
+  modalSendCorrectionRequest.classList.remove('active');
+  overlay.classList.remove('active');
+  console.log('クリックしました。');
+});
+closeBtnModalSendCorrectionRequest.addEventListener('click', function(){
+  modalRegistNewContact.classList.remove('active');
+  modalShowApplHistory.classList.remove('active');
+  modalEditEntryInfo.classList.remove('active');
+  modalSendCorrectionRequest.classList.remove('active');
   overlay.classList.remove('active');
   console.log('クリックしました。');
 });
@@ -56,6 +77,9 @@ overlay.addEventListener('click', function() {
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
+  modalSendCorrectionRequest.classList.remove('active');
   overlay.classList.remove('active');
+  console.log('オーバーレイをクリックしました。');
 });
+
 
