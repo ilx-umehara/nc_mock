@@ -179,6 +179,7 @@
 }
 
 .triangle-bottom{
+    position: absolute;
     display: inline-block;
     background-color: blue;
     width: 16px;
@@ -188,6 +189,7 @@
 }
 
 .triangle-right{
+    position: absolute;
     display: inline-block;
     background-color: blue;
     width: 12px;
