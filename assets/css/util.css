@@ -1,5 +1,9 @@
-/* ===================== style initial ===================== */
+/* ===================== initial ===================== */
 body {
+    margin: initial;
+}
+
+h1,h2,h3,h4,h5,h6,p{
     margin: initial;
 }
 
@@ -15,10 +19,6 @@ li{
     list-style:none;
 }
 
-p {
-    margin: initial;
-}
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -31,7 +31,28 @@ td{
     padding: initial;
 }
 
-
+a{
+    text-decoration: none;
+    color: initial;
+}
+.b_line_ini{
+    border: initial;
+}
+.bt_line_ini{
+    border-top: initial !important;
+}
+.br_line_ini{
+    border-right: initial !important;
+}
+.bb_line_ini{
+    border-bottom: initial !important;
+}
+.bl_line_ini{
+    border-left: initial !important;
+}
+.bg_color_ini{
+    background-color: initial !important;
+}
 /* ===================== input form ===================== */
 input[type="text"]{
     height:24px;
@@ -855,6 +876,16 @@ label input{
     font-weight: bold;
 }
 
+/* ===================== font-size ===================== */
+.fs_05rem{
+    font-size: 0.5rem;
+}
+.fs_08rem{
+    font-size: 0.8rem;
+}
+.fs_1rem{
+    font-size: 1rem;
+}
 /* ===================== background-color ===================== */
 .bgc_list-odd{
     background-color: #F5F5F5;

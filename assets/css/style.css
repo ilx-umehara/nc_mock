@@ -2,7 +2,7 @@
 
 
 /*=========================================================================
-【1-3-3】応募者管理画面 (oubo_detail.html)
+【1-3-3】応募者管理画面 (applicants_detail.html)
 =========================================================================*/
 .profile_icon{
     height: 50px;
@@ -58,7 +58,7 @@
 }
 
 .area_status{
-    background-color: #F5F5F5;
+    background-color: #F0F0F0;
 }
 .area_status_num{
     padding: 10px;
@@ -258,11 +258,11 @@
     overflow-y: scroll;
 }
 .area_num_table tr:nth-child(odd) td{
-    background-color: #F5F5F5;
+    background-color: #F0F0F0;
     padding: 3px 10px;
 }
 .area_num_table tr:nth-child(even) td{
-    background-color: #FFFFFF;
+    background-color: #FCFCFC;
     padding: 3px 10px;
 }
 .area_num_table tr td{
@@ -283,52 +283,74 @@
 }
 
 .appli-history_table tr:nth-child(odd) td{
-    background-color: #F5F5F5;
+    background-color: #F0F0F0;
     height: 30px;
 }
 .appli-history_table tr:nth-child(even) td{
-    background-color: #FFFFFF;
+    background-color: #FCFCFC;
     height: 30px;
 }
 .appli-history_table td:nth-child(1) {
     text-align: center;
+    vertical-align: top;
+    width: 2%;
 }
 .appli-history_table td:nth-child(2) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 6%;
 }
 .appli-history_table td:nth-child(3) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 6%;
 }
 .appli-history_table td:nth-child(4) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 12%;
 }
 .appli-history_table td:nth-child(5) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 7%;
 }
 .appli-history_table td:nth-child(6) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 7%;
 }
 .appli-history_table td:nth-child(7) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 8%;
 }
 .appli-history_table td:nth-child(8) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 6%;
 }
 .appli-history_table td:nth-child(9) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 16%;
 }
 .appli-history_table td:nth-child(10) {
-
+    text-align: center;
+    vertical-align: top;
+    width: 9%;
 }
 .appli-history_table td:nth-child(11) {
-
+    text-align: left;
+    vertical-align: top;
+    width: 17%;
 }
 .appli-history_table td:nth-child(12) {
-
+    text-align: center;
+    vertical-align: top;
+    width: 4%;
 }
-.appli-history_table td:nth-child(13) {
 
-}
 
 #modal_edit-entry-info,
 #modal_send-correction-request{
@@ -336,13 +358,11 @@
     height: 850px;
 }
 
-#modal_send-correction-request{
-
+#modal_show-appli-history{
+    width: 80%;
 }
 
-.edit_entry_info_form{
 
-}
 
 .entry_title_btn_block{
     padding: 15px 40px 40px 40px;
@@ -351,14 +371,6 @@
 .content_area{
     padding: 20px 40px;
 }
-.content_area div label,
-.content_area div label input{
-    /* padding-left: 30px; */
-}
-
-
-
-
 
 .oubo_link_table {
     max-width: 100%;
@@ -422,4 +434,94 @@
     /* margin-left: 20px; */
 }
 
+/*=========================================================================
+【1-3-3】応募者管理画面 (candidates_linked.html)
+=========================================================================*/
+.candidates_linked_table tr{
+    border: 1px solid #f0f0f0;
+}
+.candidates_linked_table th{
+    background-color: #FFFFFF;
+    color: #707070;
+    border-bottom: 1px solid #0047A4;
+}
 
+.candidates_linked_table td{
+    /* border: 1px solid #cce7ff; */
+    padding: 10px;
+}
+
+.candidates_linked_table tr:nth-child(odd) td{
+    /* background-color: #F0F0F0; */
+    height: 30px;
+}
+.candidates_linked_table tr:nth-child(even) td{
+    /* background-color: #FCFCFC; */
+    height: 30px;
+}
+.candidates_linked_table td:nth-child(1) {
+    text-align: center;
+    vertical-align: middle;
+    width: 2%;
+}
+.candidates_linked_table td:nth-child(2) {
+    text-align: left;
+    vertical-align: top;
+    width: 8%;
+}
+.candidates_linked_table td:nth-child(3) {
+    text-align: left;
+    vertical-align: top;
+    width: 12%;
+}
+.candidates_linked_table td:nth-child(4) {
+    text-align: left;
+    vertical-align: top;
+    width: 10%;
+}
+.candidates_linked_table td:nth-child(5) {
+    text-align: left;
+    vertical-align: top;
+    width: 8%;
+}
+.candidates_linked_table td:nth-child(6) {
+    text-align: left;
+    vertical-align: top;
+    width: 14%;
+}
+.candidates_linked_table td:nth-child(7) {
+    text-align: left;
+    vertical-align: top;
+    width: 12%;
+}
+.candidates_linked_table td:nth-child(8) {
+    text-align: left;
+    vertical-align: top;
+    width: 24%;
+}
+.candidates_linked_table td:nth-child(9) {
+    text-align: center;
+    width: 10%;
+}
+
+.candidates_linked_child{
+    color: #777777;
+}
+
+.candidate_style{
+    color: #AAAAAA;
+}
+
+.decision_style{
+    color: #F70084;
+    font-weight: bold;
+}
+
+.candidate_table_empty{
+    display: inline-block;
+    width: 16px;
+}
+
+.match{
+    background-color: #FFF999
+}

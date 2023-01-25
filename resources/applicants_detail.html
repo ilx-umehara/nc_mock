@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link href="../assets/css/util.css" rel="stylesheet" />
+        <link href="../assets/css/common.css" rel="stylesheet" />
+        <link href="../assets/css/template.css" rel="stylesheet" />
+        <link href="../assets/css/style.css" rel="stylesheet" />
+
+        <title>応募者管理&nbsp;|&nbsp;ふぁん君</title>
+    </head>
+    <body>
+        <!-- モーダルのオーバーレイ ここから -->
+        <div class="overlay"></div>
+        <!-- モーダルのオーバーレイ ここまで -->
+        <!-- コンタクト履歴のモーダル ここから -->
+        <div id="modal_regist-new-contact" class="modal modal_window">
+            <div class="flex justfy-content_space-between">
+                <p class="content_block_title mb40">コンタクト入力</p>
+                <div id="close-modal_regist-new-contact" class="my-parts"><span></span></div>
+            </div>
+            <ul class="input_form_contact">
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■アクション</p>
+                    </div>
+                    <div class="pa10 flex">
+                        <label for="action_1" class="options">
+                            <input type="radio" id="action_1" name="contact_action" value="1">コール(未接触)
+                        </label>
+                        <label for="action_2" class="options ml30">
+                            <input type="radio" id="action_2" name="contact_action" value="2">コール(接触)
+                        </label>
+                        <label for="action_3" class="options ml30">
+                            <input type="radio" id="action_3" name="contact_action" value="3">入電
+                        </label>
+                        <label for="action_4" class="options ml30">
+                            <input type="radio" id="action_4" name="contact_action" value="4">その他(対面など)
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■進捗</p>
+                    </div>
+                    <div class="pa10">
+                        <div class="pb10 flex">
+                            <label for="progress_1" class="options">
+                                <input type="radio" id="progress_1" name="contact_progress" value="1">未対応
+                            </label>
+                            <label for="progress_2" class="options ml30">
+                                <input type="radio" id="progress_2" name="contact_progress" value="2">呼び込み中
+                            </label>
+                            <label for="progress_3" class="options ml30">
+                                <input type="radio" id="progress_3" name="contact_progress" value="3">登録完了
+                            </label>
+                            <label for="progress_4" class="options ml30">
+                                <input type="radio" id="progress_4" name="contact_progress" value="4">その他(対面など)
+                            </label>
+                        </div>
+                        <div class="pb10 flex">
+                            <label for="progress_5" class="options">
+                                <input type="radio" id="progress_5" name="contact_progress" value="5">辞退&emsp;
+                            </label>
+                            &emsp;理由：<input type="text" name="reason_for_declining" class="w300px">
+                            
+                        </div>
+                        <div class="pb10 flex">
+                            <label for="progress_6" class="options">
+                                <input type="radio" id="progress_6" name="contact_progress" value="6">対象外
+                            </label>
+                            &emsp;理由：<input type="text" name="reason_for_exclusion" class="w300px">
+                        </div>
+                    </div>
+                </li>
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■本人確認書類</p>
+                    </div>
+                    <div class="pa10 flex">
+                        <label for="identification_1">
+                            <input type="radio" id="identification_1" name="identification_documents" value="1">未対応(依頼前)
+                        </label>
+                        <label for="identification_2" class="options ml30">
+                            <input type="radio" id="identification_2" name="identification_documents" value="2">提示依頼済み
+                        </label>
+                        <label for="identification_3" class="options ml30">
+                            <input type="radio" id="identification_3" name="identification_documents" value="3">提示・確認済み
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■ネット予約</p>
+                    </div>
+                    <div class="pa10 flex align-item_center">
+                        <label for="book_online_1" class="checkbox-wrapper">
+                            <input type="checkbox" id="book_online_1" name="book_online" class="checkbox-input" value="1">
+                            <span class="checkbox-tile">初回版再送</span>
+                        </label>
+                        <label for="book_online_2" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="book_online_2" name="book_online" class="checkbox-input" value="2">
+                            <span class="checkbox-tile">追加版送付</span>
+                        </label>
+                    </div>
+                </li>
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■Webエントリー</p>
+                    </div>
+                    <div class="pa10 flex align-item_center">
+                        <label for="web_entry_1" class="checkbox-wrapper">
+                            <input type="checkbox" id="web_entry_1" name="web_entry" class="checkbox-input" value="1">
+                            <span class="checkbox-tile">案内メール送信</span>
+                        </label>
+                        <label for="web_entry_2" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="web_entry_2" name="web_entry" class="checkbox-input" value="2">
+                            <span class="checkbox-tile">代理予約</span>
+                        </label>
+                        <label for="web_entry_3" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="web_entry_3" name="web_entry" class="checkbox-input" value="3">
+                            <span class="checkbox-tile">汎用メール送信</span>
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■コミュニケーション</p>
+                    </div>
+                    <div class="pa10">
+                        <textarea cols="40" rows="10"></textarea>
+                    </div>
+                </li>
+            </ul>
+            <div class="flex justfy-content_center mt20 mb20">
+                <button id="close-modal_regist-new-contact" class="btn-large btn_light-green w180px">登録する</button>
+            </div>
+        </div>
+        <!-- コンタクト履歴のモーダル ここまで -->
+        <!-- 応募履歴のモーダル ここから -->
+        <div id="modal_show-appli-history" class="modal modal_window">
+            <div class="flex justfy-content_space-between">
+                <p class="content_block_title mb40">応募履歴一覧</p>
+                <!-- <button id="close-modal_show-appli-history" class="close-modal_show-appli-history"></button> -->
+                <div id="close-modal_show-appli-history" class="my-parts"><span></span></div>
+            </div>
+            <table class="appli-history_table w100per">
+                <thead>
+                    <tr class="header_border-line">
+                        <th>Alive</th>
+                        <th>応募日<br>(応募時年齢)</th>
+                        <th>応募支店</th>
+                        <th>媒体</th>
+                        <th>有効・無効</th>
+                        <th>最終<br>ステータス</th>
+                        <th>名前<br>(性別)</th>
+                        <th>生年月日</th>
+                        <th>住所</th>
+                        <th>電話番号</th>
+                        <th>メールアドレス</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="color_gray">
+                        <td>&nbsp;&nbsp;</td>
+                        <td>2022年<br>01月28日<br>(22歳)</td>
+                        <td>NC渋谷</td>
+                        <td>ウェブアグレ</td>
+                        <td>無効(同時)</td>
+                        <td></td>
+                        <td>応募&nbsp;花子<br>(女性)</td>
+                        <td>2000年<br>01月01日</td>
+                        <td>東京都中央区<br>日本橋人形町3-3-13<br>人形町フォレストビル2F</td>
+                        <td>090-3333-3333</td>
+                        <td>oubo@ilovex.co.jp</td>
+                        <td>
+                            <button class="btn-small btn_light-green w60px">編集</button>
+                        </td>
+                    </tr>
+                    <tr class="bold">
+                        <td>★</td>
+                        <td>2022年<br>01月28日<br>(22歳)</td>
+                        <td>NC渋谷</td>
+                        <td>バイトルドットコム</td>
+                        <td>有効</td>
+                        <td></td>
+                        <td>応募&nbsp;花子<br>(女性)</td>
+                        <td>2000年<br>01月01日</td>
+                        <td>東京都中央区<br>日本橋人形町3-3-13<br>人形町フォレストビル2F</td>
+                        <td>090-3333-3333</td>
+                        <td>oubo@ilovex.co.jp</td>
+                        <td>
+                            <button class="btn-small btn_light-green w60px">編集</button>
+                        </td>
+                    </tr>
+                    <tr class="color_gray">
+                        <td>&nbsp;&nbsp;</td>
+                        <td>2021年<br>12月28日<br>(21歳)</td>
+                        <td>NC渋谷</td>
+                        <td>マイナビバイト</td>
+                        <td>無効</td>
+                        <td>来社せず</td>
+                        <td>応募&nbsp;花子<br>(女性)</td>
+                        <td>2000年<br>01月01日</td>
+                        <td>新潟県新潟市中央区<br>上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
+                        <td>090-3333-3333</td>
+                        <td>oubo_fake_dummy@ilovex.co.jp</td>
+                        <td>
+                            <button class="btn-small btn_light-green w60px">編集</button>
+                        </td>
+                    </tr>
+                    <tr class="color_gray">
+                        <td>&nbsp;&nbsp;</td>
+                        <td>2020年<br>07月15日<br>(20歳)</td>
+                        <td>NC渋谷</td>
+                        <td>おうぼ受ける君</td>
+                        <td>無効</td>
+                        <td>来社せず</td>
+                        <td>勅使河原&nbsp;花子<br>(女性)</td>
+                        <td>2000年<br>01月01日</td>
+                        <td>新潟県新潟市中央区<br>上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
+                        <td>090-3333-3333</td>
+                        <td>oubo_fake_dummy@ilovex.co.jp</td>
+                        <td>
+                            <button class="btn-small btn_light-green w60px">編集</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- 応募履歴のモーダル ここまで -->
+        <!-- エントリー情報編集のモーダル ここから -->
+        <div id="modal_edit-entry-info" class="modal modal_window">
+            <div class="flex justfy-content_space-between">
+                <p class="content_block_title mb40">エントリー情報編集</p>
+                <div id="close-modal_edit-entry-info" class="my-parts"><span></span></div>
+            </div>
+            <div class="tab-panel_edit mt20 w100per">
+                <ul class="tab-group_edit">
+                    <li class="tab_edit tab-1_edit is-active_edit">エリア1</li>
+                    <li class="tab_edit tab-2_edit">エリア2</li>
+                    <li class="tab_edit tab-3_edit">エリア3</li>
+                    <li class="tab_edit tab-4_edit">エリア4</li>
+                </ul>
+                <div class="panel-group_edit">
+                    <div class="panel_edit tab-1_edit is-show_edit mt20">
+                        <div class="area_num" style="max-height: 580px;">
+                            <table class="area_num_table w100per">
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">個人情報同意</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="reason_for_declining" class="ml10 w80per" value="取得済み">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">派遣サービスへの申し込み意思</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="済">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">姓</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="応募">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">名</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="花子">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">セイ</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="オウボ">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">メイ</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="ハナコ">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">生年月日</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="2000年01月01日">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">応募時年齢</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="23歳">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">性別</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="女性">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">郵便番号</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w10per" value="103">
+                                        <input type="text" name="" class="ml10 w20per" value="0013">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">都道府県</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w20per" value="東京都">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">市区町村</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="中央区日本橋人形町">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">番地</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="3-3-13">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">住所(建物等)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="人形町フォレストビル2F">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">最寄り駅①</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="人形町駅(東京メトロ日比谷線)">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">最寄り駅②</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="水天宮前駅(東京メトロ半蔵門線)">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">メールアドレス(PC)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="oubo@ilovex.co.jp">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">メールアドレス(携帯)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="dammy-test-fake@docomo.co.jp">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">電話番号(自宅)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="03-3333-3333">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">電話番号(携帯)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="090-3333-3333">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">最終学歴</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="東京大学(2022年3月 卒業)">
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel_edit tab-2_edit mt20">
+                        <div class="tab-panel_edit_area_2 mt20">
+                            <ul class="tab-group_edit_area_2">
+                                <li class="tab_edit_area_2 tab-1_edit_area_2 is-active_edit_area_2">資格情報</li>
+                                <li class="tab_edit_area_2 tab-2_edit_area_2">希望条件</li>
+                                <li class="tab_edit_area_2 tab-3_edit_area_2">職務経歴</li>
+                                <li class="tab_edit_area_2 tab-4_edit_area_2">その他</li>
+                            </ul>
+                            <div class="panel-group_edit_area_2">
+                                <div class="panel_edit_area_2 tab-1_edit_area_2 is-show_edit_area_2">
+                                    <table class="area_num_table w100per mt10">
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">保有資格<span class="pl10">(取得年月)</span></p>
+                                            </td>
+                                            <td class="w65per">
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_1" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_1" name="qualification_1" checked>
+                                                        <span class="pl10 list_right">ヘルパー３級</span>
+                                                    </label>
+                                                    <div id="quali_date_1">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_2" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_2" name="qualification_2" checked>
+                                                        <span class="pl10 list_right">初任者研修・ヘルパー２級</span>
+                                                    </label>
+                                                    <div id="quali_date_2">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_3" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_3" name="qualification_3" checked>
+                                                        <span class="pl10 list_right">実務者研修</span>
+                                                    </label>
+                                                    <div id="quali_date_3">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_4" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_4" name="qualification_4" checked>
+                                                        <span class="pl10 list_right">ヘルパー１級</span>
+                                                    </label>
+                                                    <div id="quali_date_4">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_5" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_5" name="qualification_5" checked>
+                                                        <span class="pl10 list_right">基礎研修</span>
+                                                    </label>
+                                                    <div id="quali_date_5">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_6" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_6" name="qualification_6" checked>
+                                                        <span class="pl10 list_right">介護福祉士</span>
+                                                    </label>
+                                                    <div id="quali_date_6">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_7" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_7" name="qualification_7" checked>
+                                                        <span class="pl10 list_right">ケアマネジャー</span>
+                                                    </label>
+                                                    <div id="quali_date_7">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_8" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_8" name="qualification_8" checked>
+                                                        <span class="pl10 list_right">認定介護福祉士</span>
+                                                    </label>
+                                                    <div id="quali_date_8">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_9" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_9" name="qualification_9" checked>
+                                                        <span class="pl10 list_right">調理師</span>
+                                                    </label>
+                                                    <div id="quali_date_9">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_10" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_10" name="qualification_10" checked>
+                                                        <span class="pl10 list_right">准看護師</span>
+                                                    </label>
+                                                    <div id="quali_date_10">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_11" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_11" name="qualification_11" checked>
+                                                        <span class="pl10 list_right">正看護師</span>
+                                                    </label>
+                                                    <div id="quali_date_11">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_12" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_12" name="qualification_12" checked>
+                                                        <span class="pl10 list_right">普通自動車免許</span>
+                                                    </label>
+                                                    <div id="quali_date_12">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                                <div class="mt10 flex justfy-content_space-between align-item_center">
+                                                    <label for="qualification_13" class="form-checkbox inline-block">
+                                                        <input type="checkbox" id="qualification_13" name="qualification_13" checked>
+                                                        <span class="pl10 list_right">喀痰吸引</span>
+                                                    </label>
+                                                    <div id="quali_date_13">
+                                                        取得年月<input type="text" name="" class="ml20 w50per" value="2018年3月">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="panel_edit_area_2 tab-2_edit_area_2">
+                                    <table class="area_num_table w100per mt10">
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望の雇用形態</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">派遣</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">案内を控えてほしい施設・病院</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">応募病院</p>
+                                                <p class="pl10 list_right">応募ステーション</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">就業開始可能日</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">2023年04月01日</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望勤務可能日</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">月・火・水・木・金・土</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望勤務日数</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">週5日</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望勤務時間</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">早番・日勤・遅番・夜勤</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">具体的希望時間</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">09:00～17:00</p>
+                                                <p class="pl10 list_right">17:00～25:00</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">残業可否</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">場合により可<span>(26時まで可能)</span></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望条件(時給)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">1,600円～</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望条件(通勤時間)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">自宅から30分以内</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望条件の優先順位(1位)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">通勤距離・駅近</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望条件の優先順位(2位)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">時間給・給与</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望条件の優先順位(3位)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">就業日数</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望条件の優先順位(その他)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">働き方や方針に柔軟性を持った環境</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望施設形態</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">特養&nbsp;/&nbsp;老健&nbsp;/&nbsp;サ高住&nbsp;/&nbsp;GH&nbsp;/&nbsp;デイ&nbsp;/&nbsp;訪問介護</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">希望交通手段</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">公共交通機関&nbsp;/&nbsp;自転車&nbsp;/&nbsp;徒歩</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">その他希望事項</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">公共交通機関&nbsp;/&nbsp;自転車&nbsp;/&nbsp;徒歩</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="panel_edit_area_2 tab-3_edit_area_2">
+                                    <table class="area_num_table w100per mt10">
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(企業名)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">応募ステーション</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(事業所)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">応募ステーション(日本橋)</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(期間)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">2022年4月～2022年9月</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(雇用形態)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">正社員</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(職務内容)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">
+                                                    ・患者のお食事の準備<br>
+                                                    ・洗濯や衣服の下着などを整える<br>
+                                                    ・患者の介護を支援する<br>
+                                                    ・抗生物質や薬の服用を行う<br>
+                                                    ・いつも温かい気持ちを患者さんに提供する<br>
+                                                    ・病院からの注文に応じて、必要なものを提供する<br>
+                                                    ・概日などの様々な計画を立て、患者の満足度を向上させる<br>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(時給/月給)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">月給</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(時給/月給)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">200,000円</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴①(退職理由)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">自己都合</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">介護職・看護助手の経験年数</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">1年</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">勤務経験のある施設</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">
+                                                    ・児童福祉施設<br>
+                                                    ・保育施設<br>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="panel_edit_area_2 tab-4_edit_area_2">
+                                    <table class="area_num_table w100per mt10">
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">三大介助の抵抗有無</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">わからない</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">レクリエーションの対応可否</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">可</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">調理補助の対応可否</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">メニューが決まっており、材料もそろっている状態での調理であれば対応可能</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">送迎業務の対応可否</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">送迎で使用することが多いバンタイプのお車も対応可能</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">介護職を選んだ理由</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">
+                                                    ・自らの力で支えられる幸せを感じる<br>
+                                                    ・毎日実感できる役割の拡大<br>
+                                                    ・介護を通して役立った人々に喜びを与えられる<br>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">仕事探しをしている理由</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">
+                                                    ・家族に何かを貢献する理由<br>
+                                                    ・自身のスキルを生かすため<br>
+                                                    ・将来性のある職業を求める<br>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">車両任意保険加入状況</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">加入済</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">電話の繋がりやすい時間</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">12:00～13:00</p>
+                                                <p class="pl10 list_right">18:00～21:00</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel_edit tab-3_edit mt20">
+                        <div class="area_num">
+                            <table class="area_num_table w100per">
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(名前)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">応募一郎(オウボイチロウ)</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(電話番号)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">090-9876-5432</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(郵便番号)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">〒951-8068</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(都道府県)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">新潟県</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(市区町村)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">新潟市中央区</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(番地)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">上大川前通三番町26-7</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(建物名)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">BUENA上大川前通3-II 307</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(続柄)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">実父</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">給与口座同意の有無</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">有</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel_edit tab-4_edit mt20">
+                        <div class="area_num">
+                            <table class="area_num_table w100per">
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先の有無</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">有</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">PC入力スキル</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">教えてもらいながらであれば対応可</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">現在の転職活動の状況</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">活動中</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">面接予定先</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">東京松原介護施設、さいたまオープンエール、名古屋和洋介護サービス</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">持病・服薬の有無</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">持病：有</p>
+                                        <p class="pl10 list_right">服薬：有</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">持病・服薬の有無(詳細)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">持病：糖尿病</p>
+                                        <p class="pl10 list_right">服薬：インスリン</p>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">通院・入院歴の有無</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <p class="pl10 list_right">通　院：有</p>
+                                        <p class="pl10 list_right">入院歴：有</p>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justfy-content_space-around mt20 mb20">
+                <label for="complete_entry_info" class="form-checkbox flex align-item_center">
+                    <input type="checkbox" id="complete_entry_info" name="complete_entry_info">
+                    <span class="pl10">最終版として確定する</span>
+                    
+                </label>
+                <button id="close-modal_edit-entry-info" class="btn-large btn_light-green w180px">更新する</button>
+            </div>
+        </div>
+        <!-- エントリー情報編集のモーダル ここまで -->
+        <!-- 修正依頼の送信のモーダル ここから -->
+        <div id="modal_send-correction-request" class="modal modal_window">
+            <div class="flex justfy-content_space-between">
+                <p class="content_block_title mb40">修正依頼の送信</p>
+                <div id="close-modal_send-correction-request" class="my-parts"><span></span></div>
+            </div>
+            <div class="content_area">
+                <div class="border_b_g pb10">
+                    <h3>エリア1</h3>
+                    <div class="pl40">
+                        <label for="request_area-1" class="form-checkbox inline-block">
+                            <input type="checkbox" id="request_area-1" name="" checked disabled>
+                            <span class="pl10">基本情報<span id="message_request_area-1">&emsp;※応募者、または他の管理者が修正中です。</span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex column border_b_g pb10">
+                    <h3>エリア2</h3>
+                    <div class="pl40">
+                        <label for="request_area-2_1" class="form-checkbox inline-block">
+                            <input type="checkbox" id="request_area-2_1" name="" >
+                            <span class="pl10">資格情報<span id="message_request_area-2_1">&emsp;※応募者、または他の管理者が修正中です。</span></span>
+                        </label>
+                    </div>
+                    <div class="pl40">
+                        <label for="request_area-2_2" class="form-checkbox inline-block">
+                            <input type="checkbox" id="request_area-2_2" name="" checked disabled>
+                            <span class="pl10">希望条件<span id="message_request_area-2_2">&emsp;※応募者、または他の管理者が修正中です。</span></span>
+                        </label>
+                    </div>
+                    <div class="pl40">
+                        <label for="request_area-2_3" class="form-checkbox inline-block">
+                            <input type="checkbox" id="request_area-2_3" name="" >
+                            <span class="pl10">職務経歴<span id="message_request_area-2_3">&emsp;※応募者、または他の管理者が修正中です。</span></span>
+                        </label>
+                    </div>
+                    <div class="pl40">
+                        <label for="request_area-2_4" class="form-checkbox inline-block">
+                            <input type="checkbox" id="request_area-2_4" name="" >
+                            <span class="pl10">その他<span id="message_request_area-2_4">&emsp;※応募者、または他の管理者が修正中です。</span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="border_b_g pb10">
+                    <h3>エリア3</h3>
+                    <div class="pl40">
+                        <label for="request_area-3" class="form-checkbox inline-block">
+                            <input type="checkbox" id="request_area-3" name="" >
+                            <span class="pl10">基本情報<span id="message_request_area-3">&emsp;※応募者、または他の管理者が修正中です。</span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="border_b_g pb10">
+                    <h3>エリア4</h3>
+                    <div class="pl40">
+                        <label for="request_area-4" class="form-checkbox inline-block">
+                            <input type="checkbox" id="request_area-4" name="" >
+                            <span class="pl10">基本情報<span id="message_request_area-4">&emsp;※応募者、または他の管理者が修正中です。</span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="border_b_g pb10">
+                    <h3>コメントを追加</h3>
+                    <div class="pl40">
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div class="flex justfy-content_space-around mt20 mb20">
+                    <button id="close-modal_edit-entry-info" class="btn-large btn_light-green w180px">送信する</button>
+                </div>
+            </div>
+        </div>
+        <!-- 修正依頼の送信のモーダル ここまで -->
+
+        <div class="wrapper">
+            <header class="header">
+                <div class="header__inner">
+                    <button id="js-humberger" type="button" class="humberger" aria-controls="navigation" aria-expanded="false">
+                        <span class="humberger__line"></span>
+                        <span class="humberger__text"></span>
+                    </button>
+                    <div class="header__nav-area js-nav-area" id="navigation">
+                        <nav id="js-global-navigation" class="global-navigation">
+                        <ul class="global-navigation__list">
+                            <li>
+                                <a href="https://google.com/" class="global-navigation__link">
+                                    <span class="nav-item">メニュー</span>
+                                </a>
+                            </li>
+                            <li>
+                                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger" aria-expanded = 'false' aria-controls="accordion1">
+                                    <span class="nav-item">親メニュー</span>
+                                </button>
+                                <div id="accordion1" class="accordion js-accordion">
+                                    <ul class="accordion__list">
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child">&emsp;子メニュー</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child">&emsp;子メニュー</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child">&emsp;子メニュー</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="candidates_linked.html" class="global-navigation__link">
+                                    <span class="nav-item">候補紐付</span>
+                                </a>
+                            </li> 
+                        </ul>
+                        <div id="js-focus-trap" tabindex="0"></div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="three-block-center">
+                    <p class="header_title">応募者管理</p>
+                </div>
+                <div class="three-block-right"></div>
+            </header>
+            <main>
+                <div class="content_block mt50 h200px flex">
+                    <div class="base_profile w100per">
+                        <div class="flex justfy-content_space-around align-item_center">
+                            <div class="flex align-item_center w20per">
+                                <img src="../assets/images/person_circle_woman.svg" class="profile_icon inline-block" alt="アイコン">
+                                <div class="oubo_name pl10 text-align_center">
+                                    <p class="oubo_name_kana">オウボ&emsp;ハナコ</p>
+                                    <p class="oubo_name_kanji">応募&emsp;花子</p>
+                                </div>
+                                <button id="btn_show-appli-history" class="btn-small btn_purple w100px ml30">応募履歴</button>
+                            </div>
+                            <div class="oubo_status_header text-align_center flex justfy-content_center align-item_flex-end w20per">
+                                <p class="oubo_status_header_text inline-block">呼び込み中&emsp;</p>
+                                <p class="inline-block"><span>(</span>強制クローズまで<span class="color_red">&nbsp;3日&nbsp;</span>)</p>
+                            </div>
+                            <div class="el-empty w20per"></div>
+                        </div>
+                        <div class="flex w100per">
+                            <div class="oubo_base_info w40per mt20">
+                                <table class="oubo_base_info_table">
+                                    <tr>
+                                        <th class="w15per">
+                                            <p class="inline-block list_left">応募者ID</p>
+                                        </th>
+                                        <td class="w30per">
+                                            <p class="inline-block list_right">0101038453</p>
+                                        </td>
+                                        <th class="w20per">
+                                            <p class="inline-block list_left">都道府県</p>
+                                        </th>
+                                        <td class="w35per">
+                                            <p class="inline-block list_right">東京都</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <p class="inline-block list_left">生年月日</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right">2000年01月01日&nbsp;(23歳)</p>
+                                        </td>
+                                        <th>
+                                            <p class="inline-block list_left">電話番号</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right">090-3333-3333</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <p class="inline-block list_left">性別</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right">女性</p>
+                                        </td>
+                                        <th>
+                                            <p class="inline-block list_left">メールアドレス</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right">oubo@ilovex.co.jp</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <p class="inline-block list_left">応募媒体</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right">バイトルドットコム</p>
+                                        </td>
+                                        <th>
+                                            <p class="inline-block list_left">現在の職業</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right">会社員</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="oubo_base_info w20per mt20 ml50">
+                                <table class="oubo_base_info_table">
+                                    <tr>
+                                        <th class="w40per">
+                                            <p class="inline-block list_left">本人確認書類</p>
+                                        </th>
+                                        <td class="w60per">
+                                            <p class="inline-block list_right color_red">未対応</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <p class="inline-block list_left">ネット予約</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right color_red">未対応</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <p class="inline-block list_left">Webエントリー</p>
+                                        </th>
+                                        <td>
+                                            <p class="inline-block list_right">初回用送付・済</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="area_status w20per h70px flex justfy-content_space-around mt20 ml50">
+                                <div class="area_status_num text-align_center">
+                                    <p class="area_status_num_header">エリア1</p>
+                                    <p>済</p>
+                                </div>
+                                <div class="area_status_num text-align_center ml5">
+                                    <p class="area_status_num_header">エリア2</p>
+                                    <p>済</p>
+                                </div>
+                                <div class="area_status_num text-align_center ml5">
+                                    <p class="area_status_num_header">エリア3</p>
+                                    <p class="color_red">未</p>
+                                </div>
+                                <div class="area_status_num text-align_center ml5">
+                                    <p class="area_status_num_header">エリア4</p>
+                                    <p class="color_red">未</p>
+                                </div>
+                            </div>
+                        </div>
+                            
+                    </div>
+                </div>
+                <div class="flex w100per">
+                    <div class="tab-panel mt20 w55per">
+                        <ul class="tab-group">
+                            <li class="tab tab-area_1 is-active">エリア1</li>
+                            <li class="tab tab-area_2">エリア2</li>
+                            <li class="tab tab-area_3">エリア3</li>
+                            <li class="tab tab-area_4">エリア4</li>
+                        </ul>
+                        <div class="entry-area_title-edit flex justfy-content_space-between" style="background: #FFF;">
+                            <p class="content_block_title mb40">エントリー情報</p>
+                            <button id="btn_edit-entry-info" class="btn-normal btn_light-green w100px">編集</button>
+                        </div>
+                        <div class="panel-group">
+                            <!-- <div id="like_button_container"></div> -->
+                            <div class="panel tab-area_1 is-show">
+                                <div class="area_num">
+                                    <table class="area_num_table w100per">
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">個人情報同意</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">取得済み</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">派遣サービスへの申し込み意思</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">済</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">姓(セイ)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">応募<span>(オウボ)</span></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">名(メイ)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">花子<span>(ハナコ)</span></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">生年月日</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">2000年01月01日<span>(応募時&nbsp;23歳&nbsp;)</span></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">性別</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">女性</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">郵便番号</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">〒103-0013</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">住所</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">東京都中央区日本橋人形町3-3-13</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">住所(建物等)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">人形町フォレストビル2F</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">最寄り駅①</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">人形町駅(東京メトロ日比谷線)</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">最寄り駅②</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">水天宮前駅(東京メトロ半蔵門線)</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">メールアドレス(PC)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">oubo@ilovex.co.jp</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">メールアドレス(携帯)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">dammy-test-fake@docomo.co.jp</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">電話番号(自宅)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">03-3333-3333</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">電話番号(携帯)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">090-3333-3333</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">最終学歴</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">東京大学(2022年3月 卒業)</p>
+                                            </td>
+                                        </tr>
+        
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel tab-area_2">
+                                <div class="area_num">
+                                    <div class="tab-panel_area_2">
+                                        <ul class="tab-group_area_2">
+                                            <li class="tab_area_2 tab-1 is-active_area_2">資格情報</li>
+                                            <li class="tab_area_2 tab-2">希望条件</li>
+                                            <li class="tab_area_2 tab-3">職務経歴</li>
+                                            <li class="tab_area_2 tab-4">その他</li>
+                                        </ul>
+                                        <div class="panel-group_area_2">
+                                            <div class="panel_area_2 tab-1 is-show_area_2">
+                                                <table class="area_num_table w100per mt10">
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">保有資格<span class="pl10">(取得年月)</span></p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">ヘルパー３級<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">初任者研修・ヘルパー２級<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">実務者研修<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">ヘルパー１級<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">基礎研修<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">介護福祉士<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">ケアマネジャー<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">認定介護福祉士<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">調理師<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">准看護師<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">正看護師<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">普通自動車免許<span class="pl10">(2018年3月取得)</span></p>
+                                                            <p class="pl10 list_right">喀痰吸引<span class="pl10">(2018年3月取得)</span></p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="panel_area_2 tab-2">
+                                                <table class="area_num_table w100per mt10">
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望の雇用形態</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">派遣</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">案内を控えてほしい施設・病院</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">応募病院</p>
+                                                            <p class="pl10 list_right">応募ステーション</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">就業開始可能日</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">2023年04月01日</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望勤務可能日</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">月・火・水・木・金・土</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望勤務日数</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">週5日</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望勤務時間</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">早番・日勤・遅番・夜勤</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">具体的希望時間</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">09:00～17:00</p>
+                                                            <p class="pl10 list_right">17:00～25:00</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">残業可否</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">場合により可<span>(26時まで可能)</span></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望条件(時給)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">1,600円～</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望条件(通勤時間)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">自宅から30分以内</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望条件の優先順位(1位)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">通勤距離・駅近</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望条件の優先順位(2位)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">時間給・給与</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望条件の優先順位(3位)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">就業日数</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望条件の優先順位(その他)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">働き方や方針に柔軟性を持った環境</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望施設形態</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">特養&nbsp;/&nbsp;老健&nbsp;/&nbsp;サ高住&nbsp;/&nbsp;GH&nbsp;/&nbsp;デイ&nbsp;/&nbsp;訪問介護</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">希望交通手段</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">公共交通機関&nbsp;/&nbsp;自転車&nbsp;/&nbsp;徒歩</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">その他希望事項</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">公共交通機関&nbsp;/&nbsp;自転車&nbsp;/&nbsp;徒歩</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="panel_area_2 tab-3">
+                                                <table class="area_num_table w100per mt10">
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(企業名)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">応募ステーション</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(事業所)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">応募ステーション(日本橋)</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(期間)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">2022年4月～2022年9月</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(雇用形態)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">正社員</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(職務内容)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">
+                                                                ・患者のお食事の準備<br>
+                                                                ・洗濯や衣服の下着などを整える<br>
+                                                                ・患者の介護を支援する<br>
+                                                                ・抗生物質や薬の服用を行う<br>
+                                                                ・いつも温かい気持ちを患者さんに提供する<br>
+                                                                ・病院からの注文に応じて、必要なものを提供する<br>
+                                                                ・概日などの様々な計画を立て、患者の満足度を向上させる<br>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(時給/月給)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">月給</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(時給/月給)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">200,000円</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">職務経歴①(退職理由)</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">自己都合</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">介護職・看護助手の経験年数</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">1年</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">勤務経験のある施設</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">
+                                                                ・児童福祉施設<br>
+                                                                ・保育施設<br>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="panel_area_2 tab-4">
+                                                <table class="area_num_table w100per mt10">
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">三大介助の抵抗有無</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">わからない</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">レクリエーションの対応可否</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">可</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">調理補助の対応可否</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">メニューが決まっており、材料もそろっている状態での調理であれば対応可能</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">送迎業務の対応可否</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">送迎で使用することが多いバンタイプのお車も対応可能</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">介護職を選んだ理由</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">
+                                                                ・自らの力で支えられる幸せを感じる<br>
+                                                                ・毎日実感できる役割の拡大<br>
+                                                                ・介護を通して役立った人々に喜びを与えられる<br>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">仕事探しをしている理由</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">
+                                                                ・家族に何かを貢献する理由<br>
+                                                                ・自身のスキルを生かすため<br>
+                                                                ・将来性のある職業を求める<br>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">車両任意保険加入状況</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">加入済</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="w100per">
+                                                        <td class="w35per">
+                                                            <p class="pl10 list_left">電話の繋がりやすい時間</p>
+                                                        </td>
+                                                        <td class="w65per">
+                                                            <p class="pl10 list_right">12:00～13:00</p>
+                                                            <p class="pl10 list_right">18:00～21:00</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel tab-area_3">
+                                <div class="area_num">
+                                    <table class="area_num_table w100per">
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(名前)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">応募一郎(オウボイチロウ)</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(電話番号)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">090-9876-5432</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(郵便番号)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">〒951-8068</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(都道府県)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">新潟県</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(市区町村)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">新潟市中央区</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(番地)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">上大川前通三番町26-7</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(建物名)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">BUENA上大川前通3-II 307</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先(続柄)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">実父</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">給与口座同意の有無</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">有</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel tab-area_4">
+                                <div class="area_num">
+                                    <table class="area_num_table w100per">
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">緊急連絡先の有無</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">有</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">PC入力スキル</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">教えてもらいながらであれば対応可</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">現在の転職活動の状況</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">活動中</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">面接予定先</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">東京松原介護施設、さいたまオープンエール、名古屋和洋介護サービス</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">持病・服薬の有無</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">持病：有</p>
+                                                <p class="pl10 list_right">服薬：有</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">持病・服薬の有無(詳細)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">持病：糖尿病</p>
+                                                <p class="pl10 list_right">服薬：インスリン</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">通院・入院歴の有無</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">通　院：有</p>
+                                                <p class="pl10 list_right">入院歴：有</p>
+                                            </td>
+                                        </tr>
+        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="entry_title_btn_block flex justfy-content_center pt20 pb20">
+                            <button id="btn_send-correction-request" class="btn-normal btn_blue w180px">修正依頼の送信</button>
+                        </div>
+                    </div>
+                    <div class="content_block mt20 ml20 w45per">
+                        <div class="flex justfy-content_space-between">
+                            <p class="content_block_title mb40">コンタクト履歴</p>
+                            <button id="btn_regist-new-contact" class="btn-normal btn_light-green w160px">新規登録</button>
+                        </div>
+                        <div class="contact_history">
+                            <table class="contact_history_table w100per mb20">
+                                <tr class="mt10">
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2022年10月4日</p>
+                                        <p>通知メール</p>
+                                    </td>
+                                    <td>
+                                        <p>エリア1の登録が完了しました</p>
+                                    </td>
+                                    <td>
+                                        <p>変更なし</p>
+                                    </td>
+                                    <td>
+                                        <p>初回版再送</p>
+                                    </td>
+                                    <td>
+                                        <p>案内メール送信</p>
+                                    </td>
+                                    <td>
+                                        <p>提示依頼済み</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div>Copyright(c) NEO CARRER Corporation. All Rights Reserved</div>
+            </footer>
+        </div>
+
+        <script src="../assets/js/select-tab.js"></script>
+        <script src="../assets/js/modal-oubo_detail.js"></script>
+        <script src="../assets/js/visible.js"></script>
+        <script src="../assets/js/hamburger-menu.js"></script>
+    </body>
+</html>
