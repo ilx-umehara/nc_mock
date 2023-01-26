@@ -168,6 +168,7 @@ main{
 
 header {
     position: fixed;
+    z-index: 5;
     width: 100%;
     height: 50px;
     display: flex;
@@ -184,7 +185,7 @@ hamburger(ハンバーガーアイコン)
     height: 55px;
     margin-left: auto;
     position: relative;
-    z-index: 10;
+    z-index: 100;
     width: 50px;
     border: none;
     background-color: transparent;
@@ -284,13 +285,13 @@ hamburger(ハンバーガーアイコン)
 .nav-item:hover{
     background-color: #31A0FF;
 }
-.nav-item_child{
+/* .nav-item_child{
 
-}
+} */
 
-.global-navigation__list > li + li {
-    /* margin-top: 20px; */
-}
+/* .global-navigation__list > li + li {
+    margin-top: 20px;
+} */
 .global-navigation__link {
     display: flex;
     align-items: center;
@@ -354,9 +355,9 @@ hamburger(ハンバーガーアイコン)
 .accordion__list li {
     font-size: 0.75rem;
 }
-.accordion__list li + li {
-     /* margin-top: 21px; */
-}
+/* .accordion__list li + li {
+    margin-top: 21px;
+} */
 .accordion__link {
     display: inline-block;
     width: 100%;

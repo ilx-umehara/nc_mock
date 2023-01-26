@@ -3,6 +3,9 @@
 *:before {
     --primary-color: #46d295;
 }
+::placeholder {
+    color: #CCCCCC;
+  }
 
 .btn-normal{
     display: inline-block;

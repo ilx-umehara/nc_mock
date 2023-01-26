@@ -8,7 +8,7 @@
         <link href="../assets/css/common.css" rel="stylesheet" />
         <link href="../assets/css/template.css" rel="stylesheet" />
         <link href="../assets/css/style.css" rel="stylesheet" />
-        <title>新・既判定応募一覧&nbsp;|&nbsp;ふぁん君</title>
+        <title>応募登録画面&nbsp;|&nbsp;ふぁん君</title>
     </head>
     <body>
         <div class="wrapper">
@@ -150,14 +150,14 @@
                     </div>
                 </div>
                 <div class="three-block-center">
-                    <p class="header_title">応募者管理</p>
+                    <p class="header_title">応募登録</p>
                 </div>
                 <div class="three-block-right"></div>
             </header>
-            <main class="flex column align-item_center">
-                <div class="content_block mt50 w75per">
-                    <p class="content_block_title">応募者情報</p>
-                    <table class="candidates_linked_table w100per mt20">
+            <main class="flex justfy-content_center">
+                <div class="content_block mt50 w50per">
+                    <p class="content_block_title">応募登録</p>
+                    <!-- <table class="candidates_linked_table w100per mt20">
                         <thead class="header_border-line">
                             <tr>
                                 <th class="empty"><span class="candidate_table_empty"></span></th>
@@ -184,105 +184,133 @@
                                 <td class="bg_color_ini empty"></td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
-                <div class="content_block mt20 w75per">
-                    <p class="content_block_title">候補者情報</p>
-                    <table class="candidates_linked_table w100per mt20">
-                        <thead class="header_border-line">
-                            <tr>
-                                <th class="empty"></th>
-                                <th>応募日時</th>
-                                <th>応募媒体</th>
-                                <th>氏名<br>(カナ)</th>
-                                <th>生年月日</th>
-                                <th>住所</th>
-                                <th>電話番号</th>
-                                <th>メールアドレス</th>
-                                <th>判定</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span id="accordion_tr_before" class="triangle-right"></span>
-                                    <span id="accordion_tr_after" class="triangle-bottom unvisible"></span>
-                                </td>
-                                <td>2022年<br>12月28日<br>14時58分</td>
-                                <td>バイトルドットコム</td>
-                                <td><span class="match">応募 花子<br><span class="ruby">(オウボ ハナコ)</span></span></td>
-                                <td><span class="match">2000年<br>01月01日</span></td>
-                                <td><span class="match">東京都中央区<br>日本橋人形町3-3-13<br>人形町フォレストビル2F</span></td>
-                                <td><span class="match">03-3333-3333(固定)<br>090-3333-3333(携帯)</span></td>
-                                <td><span class="match">oubo@ilovex.com(PC)<br>wagahai_ha_neko_de_aru@docomo.ne.jp(携帯)</span></td>
-                                <td class="decision_style">確定<br><button class="btn-small btn_light-green w70px fs_05rem">紐付確定</button></td>
-                            </tr>
+                    </table> -->
+                    <ul class="appli_register_form">
+                        <li>
+                            <label for="oubo_date">
+                                <p class="w20per">応募日時</p>
+                                <input type="text" id="oubo_date" class="" name="" value="" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="sei_kanji">
+                                <p class="w20per">お名前</p>
+                                <input type="text" id="sei_kanji" class="" name="" value="" placeholder="姓" />&emsp;<input type="text" id="mei_kanji" class="" name="" value="" placeholder="名"/>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="sei_kana">
+                                <p class="w20per">お名前(カナ)</p>
+                                <input type="text" id="sei_kana" class="" name="" value="" placeholder="セイ" />&emsp;<input type="text" id="mei_kana" class="" name="" value="" placeholder="メイ" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="birthday_y">
+                                <p class="w20per">生年月日</p>
+                                <input type="text" id="birthday_y" class="w80px" name="" value="" placeholder="2000" />年&emsp;
+                                <input type="text" id="birthday_m" class="w60px" name="" value="" placeholder="1" />月&emsp;
+                                <input type="text" id="birthday_d" class="w60px" name="" value="" placeholder="1" />日&emsp;
+                                ※応募時<input type="text" id="oubo_nenrei" class="w40px" name="" value="" />歳
+                            </label>
+                        </li>
+                        <li>
+                            <label for="gender">
+                                <p class="w20per">性別</p>
+                                <label for="gender_m" class="mb_ini">
+                                    <input type="radio" id="gender_m" class="radio_adjust" name="gender" value="" />男性&emsp;
+                                </label>
+                                <label for="gender_f" class="mb_ini">
+                                    <input type="radio" id="gender_f" class="radio_adjust" name="gender" value="" />女性&emsp;
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="telephone">
+                                <p class="w20per">電話番号(固定)</p>
+                                <input type="text" id="telephone" class="" name="" value="" placeholder="03-1234-5678" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="cellphone">
+                                <p class="w20per">電話番号(携帯)</p>
+                                <input type="text" id="cellphone" class="" name="" value="" placeholder="090-1234-5678" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="mailaddress_tel">
+                                <p class="w20per">メールアドレス(PC)</p>
+                                <input type="text" id="mailaddress_tel" class="w40per" name="" value="" placeholder="example@neo-carrer.co.jp" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="mailaddress_cel">
+                                <p class="w20per">メールアドレス(携帯)</p>
+                                <input type="text" id="mailaddress_cel" class="w40per" name="" value="" placeholder="example@neo-carrer.co.jp" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="zip_code">
+                                <p class="w20per">郵便番号</p>
+                                <input type="text" id="zip_code" class="w80px" name="" value="" onKeyUp="AjaxZip3.zip2addr(this,'','prefecture','city');" placeholder="1600023"/>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="prefecture">
+                                <p class="w20per">都道府県</p>
+                                <input type="text" id="prefecture" class="w60px" name="prefecture" value="" placeholder="東京都" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="city">
+                                <p class="w20per">市区町村</p>
+                                <input type="text" id="city" class="w50per" name="city" value="" placeholder="新宿区西新宿" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="address">
+                                <p class="w20per">番地</p>
+                                <input type="text" id="address" class="w50per" name="" value="" placeholder="1-22-2" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="building">
+                                <p class="w20per">建物名</p>
+                                <input type="text" id="building" class="w50per" name="" value="" placeholder="新宿サンエービル2階" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="current_occupation">
+                                <p class="w20per">現在の職業</p>
 
-
-                            <tr class="candidates_linked_child unvisible">
-                                <td class="bg_color_ini">
-                                    
-                                </td>
-                                <td>2022年<br>12月28日<br>14時58分</td>
-                                <td>ウェブアグレ</td>
-                                <td>応募 花子<br><span class="ruby">(オウボ ハナコ)</span></td>
-                                <td>2000年<br>01月01日</td>
-                                <td>東京都中央区<br>日本橋人形町3-3-13<br>人形町フォレストビル2F</td>
-                                <td>03-3333-3333(固定)<br>090-3333-3333(携帯)</td>
-                                <td>oubo@ilovex.com(PC)<br>wagahai_ha_neko_de_aru@docomo.ne.jp(携帯)</td>
-                                <td></td>
-                            </tr>
-                            <tr class="candidates_linked_child unvisible">
-                                <td class="bg_color_ini">
-                                    
-                                </td>
-                                <td>2022年<br>12月28日<br>14時58分</td>
-                                <td>マイナビバイト</td>
-                                <td>応募 花子<br><span class="ruby">(オウボ ハナコ)</span></td>
-                                <td>2000年<br>01月01日</td>
-                                <td>新潟県新潟市中央区<br>上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
-                                <td>03-3333-3333(固定)<br>090-3333-3333(携帯)</td>
-                                <td>oubo_fake_dummy@ilovex.com(PC)<br>&nbsp;-&nbsp;(携帯)</td>
-                                <td></td>
-                            </tr>
-                            <tr class="candidates_linked_child unvisible">
-                                <td class="bg_color_ini">
-                                    <span class="candidate_table_empty"></span>
-                                </td>
-                                <td>2022年<br>12月28日<br>14時58分</td>
-                                <td>おうぼ受ける君</td>
-                                <td>勅使河原 花子<br><span class="ruby">(テシガワラ ハナコ)</span></td>
-                                <td>2000年<br>01月01日</td>
-                                <td>新潟県新潟市中央区<br>上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
-                                <td>&nbsp;-&nbsp;(固定)<br>090-3333-3333(携帯)</td>
-                                <td>oubo_fake_dummy@ilovex.com(PC)<br>&nbsp;-&nbsp;(携帯)</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="candidate_table_empty"></span>
-                                </td>
-                                <td>2018年<br>06月13日<br>10時43分</td>
-                                <td>バイトルドットコム</td>
-                                <td>赤野 他人<br><span class="ruby">(アカノ タニン)</span></td>
-                                <td>1997年<br>12月31日</td>
-                                <td>大阪市淀川区<br>常盤町3-3-3<br></td>
-                                <td><span class="match">03-3333-3333(固定)</span><br>080-1111-1111(携帯)</td>
-                                <td>tanin@gmail.com(PC)<br>&nbsp;-&nbsp;(携帯)</td>
-                                <td class="candidate_style">候補<br><button class="btn-small btn_light-green w70px fs_05rem">紐付確定</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <select id="current_occupation" class="w20per">
+                                    <option value="hidden">選択してください</option>
+                                    <option value="1">学生</option>
+                                    <option value="2">フリーター</option>
+                                    <option value="3">会社員</option>
+                                    <option value="4">留学生</option>
+                                    <option value="5">自営業</option>
+                                    <option value="6">主婦・主夫</option>
+                                    <option value="7">その他</option>
+                                </select>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="remarks" class="appli_register_form_remarks">
+                                <p class="w20per">備考</p>
+                                <textarea id="remarks"></textarea>
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="flex justfy-content_space-around mt40 mb20">
+                        <button id="" class="btn-large btn_light-green w180px">登録する</button>
+                    </div>
                 </div>
             </main>
             <footer>
                 <div>Copyright(c) NEO CARRER Corporation. All Rights Reserved</div>
             </footer>
         </div>
+        <script src="../assets/js/hamburger-menu.js"></script>
+        <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     </body>
-    <script src="../assets/js/select-tab.js"></script>
-    <script src="../assets/js/modal-oubo_detail.js"></script>
-    <script src="../assets/js/visible.js"></script>
-    <script src="../assets/js/hamburger-menu.js"></script>
-    <script src="../assets/js/accordion-tr.js"></script>
 </html>

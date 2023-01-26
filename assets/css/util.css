@@ -35,8 +35,21 @@ a{
     text-decoration: none;
     color: initial;
 }
+
+.mt_ini{
+    margin-top: initial !important;
+}
+.mr_ini{
+    margin-right: initial !important;
+}
+.mb_ini{
+    margin-bottom: initial !important;
+}
+.ml_ini{
+    margin-left: initial !important;
+}
 .b_line_ini{
-    border: initial;
+    border: initial !important;
 }
 .bt_line_ini{
     border-top: initial !important;
@@ -61,6 +74,13 @@ input[type="text"]{
     color: #0047a4;
     padding: 3px 10px;
 }
+select,option{
+    height:24px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    color: #0047a4;
+    padding: 3px 10px;
+}
 textarea {
     resize: none;
     border-radius: 5px;
@@ -79,7 +99,7 @@ label {
     position:relative;
     padding-left:1em;
 }
-label input{
+label input[type="checkbox"]{
     position:absolute;
     top:0;
     bottom:0;
