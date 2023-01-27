@@ -79,6 +79,29 @@
     background-color: #545cd8;;
 }
 
+.btn_yellow{
+    color: #222222;
+    background-color: #FFFFFF;
+    border: 1px solid #f7b924;;
+}
+
+.btn_yellow:hover{
+    color: #222222;
+    background-color: #f7b924;;
+}
+
+.btn_red{
+    color: #d92550;
+    background-color: #FFFFFF;
+    border: 1px solid #d92550;;
+}
+
+.btn_red:hover{
+    color: #FFFFFF;
+    background-color: #d92550;;
+}
+
+
 .header_border-line{
     border-bottom: 1px solid #0047A4;
 }

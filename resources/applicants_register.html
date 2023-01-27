@@ -185,122 +185,128 @@
                             </tr>
                         </tbody>
                     </table> -->
-                    <ul class="appli_register_form">
-                        <li>
-                            <label for="oubo_date">
-                                <p class="w20per">応募日時</p>
-                                <input type="text" id="oubo_date" class="w20per" name="" value="" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="sei_kanji">
-                                <p class="w20per">お名前</p>
-                                <input type="text" id="sei_kanji" class="" name="" value="" placeholder="姓" />&emsp;<input type="text" id="mei_kanji" class="" name="" value="" placeholder="名"/>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="sei_kana">
-                                <p class="w20per">お名前(カナ)</p>
-                                <input type="text" id="sei_kana" class="" name="" value="" placeholder="セイ" />&emsp;<input type="text" id="mei_kana" class="" name="" value="" placeholder="メイ" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="birthday_y">
-                                <p class="w20per">生年月日</p>
-                                <input type="text" id="birthday_y" class="w80px" name="" value="" placeholder="2000" />年&emsp;
-                                <input type="text" id="birthday_m" class="w60px" name="" value="" placeholder="1" />月&emsp;
-                                <input type="text" id="birthday_d" class="w60px" name="" value="" placeholder="1" />日&emsp;
-                                ※応募時<input type="text" id="oubo_nenrei" class="w40px" name="" value="" />歳
-                            </label>
-                        </li>
-                        <li>
-                            <label for="gender">
-                                <p class="w20per">性別</p>
-                                <label for="gender_m" class="mb_ini">
-                                    <input type="radio" id="gender_m" class="radio_adjust" name="gender" value="" />男性&emsp;
+                    <form method="POST" action="" name="applicants_register" onSubmit="return check()">
+                        <ul class="appli_register_form">
+                            <li>
+                                <label for="oubo_date_y">
+                                    <p class="w20per">応募日時</p>
+                                    <input type="text" id="oubo_date_y" class="w60px ageCalc" name="oubo_date_y" value="" />年&emsp;
+                                    <input type="text" id="oubo_date_M" class="w40px ageCalc" name="oubo_date_M" value="" />月&emsp;
+                                    <input type="text" id="oubo_date_d" class="w40px ageCalc" name="oubo_date_d" value="" />日&emsp;
+                                    <input type="text" id="oubo_date_h" class="w20px" name="oubo_date_h" value="" />時&emsp;
+                                    <input type="text" id="oubo_date_m" class="w20px" name="oubo_date_m" value="" />分&emsp;
                                 </label>
-                                <label for="gender_f" class="mb_ini">
-                                    <input type="radio" id="gender_f" class="radio_adjust" name="gender" value="" />女性&emsp;
+                            </li>
+                            <li>
+                                <label for="sei_kanji">
+                                    <p class="w20per">お名前</p>
+                                    <input type="text" id="sei_kanji" class="" name="" value="" placeholder="応募" />&emsp;<input type="text" id="mei_kanji" class="" name="" value="" placeholder="花子"/>
                                 </label>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="telephone">
-                                <p class="w20per">電話番号(固定)</p>
-                                <input type="text" id="telephone" class="" name="" value="" placeholder="03-1234-5678" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="cellphone">
-                                <p class="w20per">電話番号(携帯)</p>
-                                <input type="text" id="cellphone" class="" name="" value="" placeholder="090-1234-5678" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="mailaddress_tel">
-                                <p class="w20per">メールアドレス(PC)</p>
-                                <input type="text" id="mailaddress_tel" class="w40per" name="" value="" placeholder="example@neo-carrer.co.jp" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="mailaddress_cel">
-                                <p class="w20per">メールアドレス(携帯)</p>
-                                <input type="text" id="mailaddress_cel" class="w40per" name="" value="" placeholder="example@neo-carrer.co.jp" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="zip_code">
-                                <p class="w20per">郵便番号</p>
-                                <input type="text" id="zip_code" class="w80px" name="" value="" onKeyUp="AjaxZip3.zip2addr(this,'','prefecture','city');" placeholder="1600023"/>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="prefecture">
-                                <p class="w20per">都道府県</p>
-                                <input type="text" id="prefecture" class="w60px" name="prefecture" value="" placeholder="東京都" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="city">
-                                <p class="w20per">市区町村</p>
-                                <input type="text" id="city" class="w50per" name="city" value="" placeholder="新宿区西新宿" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="address">
-                                <p class="w20per">番地</p>
-                                <input type="text" id="address" class="w50per" name="" value="" placeholder="1-22-2" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="building">
-                                <p class="w20per">建物名</p>
-                                <input type="text" id="building" class="w50per" name="" value="" placeholder="新宿サンエービル2階" />
-                            </label>
-                        </li>
-                        <li>
-                            <label for="current_occupation">
-                                <p class="w20per">現在の職業</p>
-
-                                <select id="current_occupation" class="w20per">
-                                    <option value="hidden">選択してください</option>
-                                    <option value="1">学生</option>
-                                    <option value="2">フリーター</option>
-                                    <option value="3">会社員</option>
-                                    <option value="4">留学生</option>
-                                    <option value="5">自営業</option>
-                                    <option value="6">主婦・主夫</option>
-                                    <option value="7">その他</option>
-                                </select>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="remarks" class="appli_register_form_remarks">
-                                <p class="w20per">備考</p>
-                                <textarea id="remarks"></textarea>
-                            </label>
-                        </li>
-                    </ul>
+                            </li>
+                            <li>
+                                <label for="sei_kana">
+                                    <p class="w20per">お名前(カナ)</p>
+                                    <input type="text" id="sei_kana" class="" name="" value="" placeholder="オウボ" />&emsp;<input type="text" id="mei_kana" class="" name="" value="" placeholder="ハナコ" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="birthday_y">
+                                    <p class="w20per">生年月日</p>
+                                    <input type="text" id="birthday_y" class="w60px ageCalc" name="birthday_y" value="" placeholder="2000" />年&emsp;
+                                    <input type="text" id="birthday_m" class="w40px ageCalc" name="birthday_m" value="" placeholder="1" />月&emsp;
+                                    <input type="text" id="birthday_d" class="w40px ageCalc" name="birthday_d" value="" placeholder="1" />日&emsp;
+                                    ※応募時<input type="text" id="oubo_age" class="w40px" name="oubo_age" value="" />歳
+                                </label>
+                            </li>
+                            <li>
+                                <label for="gender">
+                                    <p class="w20per">性別</p>
+                                    <label for="gender_m" class="mb_ini">
+                                        <input type="radio" id="gender_m" class="radio_adjust" name="gender" value="" />男性&emsp;
+                                    </label>
+                                    <label for="gender_f" class="mb_ini">
+                                        <input type="radio" id="gender_f" class="radio_adjust" name="gender" value="" />女性&emsp;
+                                    </label>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="telephone">
+                                    <p class="w20per">電話番号(固定)</p>
+                                    <input type="text" id="telephone" class="" name="" value="" placeholder="03-1234-5678" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="cellphone">
+                                    <p class="w20per">電話番号(携帯)</p>
+                                    <input type="text" id="cellphone" class="" name="" value="" placeholder="090-1234-5678" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mailaddress_tel">
+                                    <p class="w20per">メールアドレス(PC)</p>
+                                    <input type="text" id="mailaddress_tel" class="w40per" name="" value="" placeholder="example@neo-carrer.co.jp" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mailaddress_cel">
+                                    <p class="w20per">メールアドレス(携帯)</p>
+                                    <input type="text" id="mailaddress_cel" class="w40per" name="" value="" placeholder="example@neo-carrer.co.jp" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="zip_code">
+                                    <p class="w20per">郵便番号</p>
+                                    <input type="text" id="zip_code" class="w80px" name="" value="" onKeyUp="AjaxZip3.zip2addr(this,'','prefecture','city');" placeholder="1600023"/>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="prefecture">
+                                    <p class="w20per">都道府県</p>
+                                    <input type="text" id="prefecture" class="w60px" name="prefecture" value="" placeholder="東京都" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="city">
+                                    <p class="w20per">市区町村</p>
+                                    <input type="text" id="city" class="w50per" name="city" value="" placeholder="新宿区西新宿" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="address">
+                                    <p class="w20per">番地</p>
+                                    <input type="text" id="address" class="w50per" name="" value="" placeholder="1-22-2" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="building">
+                                    <p class="w20per">建物名</p>
+                                    <input type="text" id="building" class="w50per" name="" value="" placeholder="新宿サンエービル2階" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="current_occupation">
+                                    <p class="w20per">現在の職業</p>
+    
+                                    <select id="current_occupation" class="w20per">
+                                        <option value="hidden">選択してください</option>
+                                        <option value="1">学生</option>
+                                        <option value="2">フリーター</option>
+                                        <option value="3">会社員</option>
+                                        <option value="4">留学生</option>
+                                        <option value="5">自営業</option>
+                                        <option value="6">主婦・主夫</option>
+                                        <option value="7">その他</option>
+                                    </select>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="remarks" class="appli_register_form_remarks">
+                                    <p class="w20per">備考</p>
+                                    <textarea id="remarks"></textarea>
+                                </label>
+                            </li>
+                        </ul>
+                    </form>
                     <div class="flex justfy-content_space-around mt40 mb20">
                         <button id="" class="btn-large btn_light-green w180px">登録する</button>
                     </div>

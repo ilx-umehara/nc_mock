@@ -45,7 +45,21 @@
 }
 
 
+.applicants_detail_second-block{
+    position: relative;
+}
 
+.hansha_check_block{
+    width: 30%;
+    height: 400px;
+    background-color: #FFFFFF;
+    border: 5px solid #d92550;
+    border-radius: 0.25rem;
+}
+
+.hansha_check_block h2{
+    color: #d92550;
+}
 
 .oubo_status_header{
     height:50px;
