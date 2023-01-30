@@ -353,6 +353,9 @@ hamburger(ハンバーガーアイコン)
     padding-top: 10px;
     visibility: visible;
 }
+/* .accordion__list{
+
+} */
 .accordion__list li {
     font-size: 0.75rem;
 }
@@ -365,6 +368,17 @@ hamburger(ハンバーガーアイコン)
     height: 100%;
     color: #FFFFFF;
 }
+
+.header_dot{
+    display: inline-block;
+    vertical-align: middle;
+    width: 6px;
+    height: 6px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
 .header_title {
     font-size: 1.5rem;
     line-height: 3rem;
