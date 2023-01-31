@@ -21,6 +21,13 @@
 .oubo_base_info{
 
 }
+
+#base_info_name{
+    cursor: pointer;
+}
+#base_info_name:hover{
+    opacity: 0.8;
+}
 .oubo_base_info_table{
     width: 100%;
     border-collapse:collapse;

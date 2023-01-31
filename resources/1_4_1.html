@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link href="../assets/css/util.css" rel="stylesheet" />
+        <link href="../assets/css/common.css" rel="stylesheet" />
+        <link href="../assets/css/template.css" rel="stylesheet" />
+        <link href="../assets/css/style.css" rel="stylesheet" />
+
+        <title>応募者管理&nbsp;|&nbsp;ふぁん君</title>
+    </head>
+    <body>
+        <!-- モーダルのオーバーレイ ここから -->
+        <div class="overlay"></div>
+        <!-- モーダルのオーバーレイ ここまで -->
+        <!-- コンタクト履歴のモーダル ここから -->
+        <div id="modal_regist-new-contact" class="modal modal_window">
+            <div class="flex justfy-content_space-between">
+                <p class="content_block_title mb40">コンタクト入力</p>
+                <div id="close-modal_regist-new-contact" class="my-parts"><span></span></div>
+            </div>
+            <ul class="input_form_contact">
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■アクション</p>
+                    </div>
+                    <div class="pa10 flex">
+                        <label for="action_1" class="options">
+                            <input type="radio" id="action_1" name="contact_action" value="1">コール(未接触)
+                        </label>
+                        <label for="action_2" class="options ml30">
+                            <input type="radio" id="action_2" name="contact_action" value="2">コール(接触)
+                        </label>
+                        <label for="action_3" class="options ml30">
+                            <input type="radio" id="action_3" name="contact_action" value="3">入電
+                        </label>
+                        <label for="action_4" class="options ml30">
+                            <input type="radio" id="action_4" name="contact_action" value="4">メール送信
+                        </label>
+                        <label for="action_5" class="options ml30">
+                            <input type="radio" id="action_5" name="contact_action" value="5">メール受信
+                        </label>
+                        <label for="action_6" class="options ml30">
+                            <input type="radio" id="action_6" name="contact_action" value="6">その他(対面など)
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■進捗</p>
+                    </div>
+                    <div class="pa10">
+                        <div class="pb10 flex">
+                            <label for="progress_1" class="options">
+                                <input type="radio" id="progress_1" name="contact_progress" value="1">未対応
+                            </label>
+                            <label for="progress_2" class="options ml30">
+                                <input type="radio" id="progress_2" name="contact_progress" value="2">呼び込み中
+                            </label>
+                            <label for="progress_3" class="options ml30">
+                                <input type="radio" id="progress_3" name="contact_progress" value="3">登録完了
+                            </label>
+                            <label for="progress_4" class="options ml30">
+                                <input type="radio" id="progress_4" name="contact_progress" value="4">その他(対面など)
+                            </label>
+                        </div>
+                        <div class="pb10 flex">
+                            <label for="progress_5" class="options">
+                                <input type="radio" id="progress_5" name="contact_progress" value="5">辞退&emsp;
+                            </label>
+                            &emsp;理由：<input type="text" name="reason_for_declining" class="w300px">
+                            
+                        </div>
+                        <div class="pb10 flex">
+                            <label for="progress_6" class="options">
+                                <input type="radio" id="progress_6" name="contact_progress" value="6">対象外
+                            </label>
+                            &emsp;理由：<input type="text" name="reason_for_exclusion" class="w300px">
+                        </div>
+                    </div>
+                </li>
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■本人確認書類</p>
+                    </div>
+                    <div class="pa10 flex">
+                        <label for="identification_1">
+                            <input type="radio" id="identification_1" name="identification_documents" value="1">未対応(依頼前)
+                        </label>
+                        <label for="identification_2" class="options ml30">
+                            <input type="radio" id="identification_2" name="identification_documents" value="2">提示依頼済み
+                        </label>
+                        <label for="identification_3" class="options ml30">
+                            <input type="radio" id="identification_3" name="identification_documents" value="3">提示・確認済み
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■ネット予約</p>
+                    </div>
+                    <div class="pa10 flex align-item_center">
+                        <label for="book_online_1" class="checkbox-wrapper">
+                            <input type="checkbox" id="book_online_1" name="book_online" class="checkbox-input" value="1">
+                            <span class="checkbox-tile">初回版再送</span>
+                        </label>
+                        <label for="book_online_2" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="book_online_2" name="book_online" class="checkbox-input" value="2">
+                            <span class="checkbox-tile">追加版送付</span>
+                        </label>
+                    </div>
+                </li>
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■Webエントリー</p>
+                    </div>
+                    <div class="pa10 flex align-item_center">
+                        <label for="web_entry_1" class="checkbox-wrapper">
+                            <input type="checkbox" id="web_entry_1" name="web_entry" class="checkbox-input" value="1">
+                            <span class="checkbox-tile">案内メール送信</span>
+                        </label>
+                        <label for="web_entry_2" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="web_entry_2" name="web_entry" class="checkbox-input" value="2">
+                            <span class="checkbox-tile">代理予約</span>
+                        </label>
+                        <label for="web_entry_3" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="web_entry_3" name="web_entry" class="checkbox-input" value="3">
+                            <span class="checkbox-tile">汎用メール送信</span>
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■コミュニケーション</p>
+                    </div>
+                    <div class="pa10">
+                        <textarea cols="40" rows="10"></textarea>
+                    </div>
+                </li>
+            </ul>
+            <div class="flex justfy-content_center mt20 mb20">
+                <button id="close-modal_regist-new-contact" class="btn-large btn_light-green w180px">登録する</button>
+            </div>
+        </div>
+        <!-- コンタクト履歴のモーダル ここまで -->
+
+        <div class="wrapper">
+            <header class="header">
+                <div class="header__inner">
+                    <button id="js-humberger" type="button" class="humberger" aria-controls="navigation" aria-expanded="false">
+                        <span class="humberger__line"></span>
+                        <span class="humberger__text"></span>
+                    </button>
+                    <div class="header__nav-area js-nav-area" id="navigation">
+                        <nav id="js-global-navigation" class="global-navigation">
+                        <ul class="global-navigation__list">
+                            <li>
+                                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger" aria-expanded = 'false' aria-controls="accordion1">
+                                    <span class="nav-item">応募者管理</span>
+                                </button>
+                                <div id="accordion1" class="accordion js-accordion">
+                                    <ul class="accordion__list">
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>応募者一覧画面</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="applicants_register.html" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>応募登録画面</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="candidates_linked.html" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>候補者一覧</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>CAERUS重複チェック</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="candidates_linked.html" class="global-navigation__link">
+                                    <span class="nav-item">登録会予約管理</span>
+                                </a>
+                            </li> 
+                            <li>
+                                <a href="candidates_linked.html" class="global-navigation__link">
+                                    <span class="nav-item">汎用メール送信</span>
+                                </a>
+                            </li>
+                            <li>
+                                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger" aria-expanded = 'false' aria-controls="accordion1">
+                                    <span class="nav-item">マスタメンテナンス</span>
+                                </button>
+                                <div id="accordion1" class="accordion js-accordion">
+                                    <ul class="accordion__list">
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>権限・ロール設定マスタメンテ</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>閲覧可能事業部マスタメンテ</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>登録会会場一覧</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>登録会会場マスタメンテ</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>登録会会場予約可能条件マスタ</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>二次媒体 ログイン情報マスタメンテ</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger" aria-expanded = 'false' aria-controls="accordion1">
+                                    <span class="nav-item">集計機能</span>
+                                </button>
+                                <div id="accordion1" class="accordion js-accordion">
+                                    <ul class="accordion__list">
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>集計A：媒体別応募数集計</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>集計B：メール送信件数履歴</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>集計C：コール件数別応募数集計</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>集計D：年代別応募数・登録数集計</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>集計E：応募データCSV出力機能</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>集計F：各種進捗別集計</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://google.com/" class="accordion__link">
+                                                <span class="nav-item nav-item_child"><span class="header_dot"></span>集計G：各種進捗別集計</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div id="js-focus-trap" tabindex="0"></div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="three-block-center">
+                    <p class="header_title">応募者管理</p>
+                </div>
+                <div class="three-block-right"></div>
+            </header>
+            <main>
+                <div class="content_block mt50 h50px flex">
+                    <div class="w100per flex justfy-content_space-around align-item_center">
+                        <div class="flex">
+                            <div>
+                                <span>支店</span>
+                                <select>
+                                    <option value="hidden">選択してください</option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div>
+                                <span>会場</span>
+                                <select>
+                                    <option value="hidden">選択してください</option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <h1>2023年1月</h1>
+                        </div>
+                        <div>
+                            <a href="#">新規予約枠設定</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_block mt20 h100px flex">
+                    <div class="w100per">
+
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div>Copyright(c) NEO CARRER Corporation. All Rights Reserved</div>
+            </footer>
+        </div>
+
+        <script src="../assets/js/select-tab.js"></script>
+        <script src="../assets/js/modal-oubo_detail.js"></script>
+        <script src="../assets/js/visible.js"></script>
+        <script src="../assets/js/hamburger-menu.js"></script>
+        <script src="../assets/js/checkbox-all.js"></script>
+    </body>
+</html>

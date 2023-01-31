@@ -166,7 +166,6 @@
                         <th>住所</th>
                         <th>電話番号</th>
                         <th>メールアドレス</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -182,9 +181,6 @@
                         <td>東京都中央区<br>日本橋人形町3-3-13<br>人形町フォレストビル2F</td>
                         <td>090-3333-3333</td>
                         <td>oubo@ilovex.co.jp</td>
-                        <td>
-                            <button class="btn-small btn_light-green w60px">編集</button>
-                        </td>
                     </tr>
                     <tr class="bold">
                         <td>★</td>
@@ -198,9 +194,6 @@
                         <td>東京都中央区<br>日本橋人形町3-3-13<br>人形町フォレストビル2F</td>
                         <td>090-3333-3333</td>
                         <td>oubo@ilovex.co.jp</td>
-                        <td>
-                            <button class="btn-small btn_light-green w60px">編集</button>
-                        </td>
                     </tr>
                     <tr class="color_gray">
                         <td>&nbsp;&nbsp;</td>
@@ -214,9 +207,6 @@
                         <td>新潟県新潟市中央区<br>上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
                         <td>090-3333-3333</td>
                         <td>oubo_fake_dummy@ilovex.co.jp</td>
-                        <td>
-                            <button class="btn-small btn_light-green w60px">編集</button>
-                        </td>
                     </tr>
                     <tr class="color_gray">
                         <td>&nbsp;&nbsp;</td>
@@ -230,9 +220,6 @@
                         <td>新潟県新潟市中央区<br>上大川前通三番町26-7<br>BUENA上大川前通3-II 307</td>
                         <td>090-3333-3333</td>
                         <td>oubo_fake_dummy@ilovex.co.jp</td>
-                        <td>
-                            <button class="btn-small btn_light-green w60px">編集</button>
-                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -1273,19 +1260,22 @@
                 <div class="content_block mt50 h200px flex">
                     <div class="base_profile w100per">
                         <div class="flex justfy-content_space-around align-item_center">
-                            <div class="flex align-item_center w20per">
-                                <img src="../assets/images/person_circle_woman.svg" class="profile_icon inline-block" alt="アイコン">
-                                <div class="oubo_name pl10 text-align_center">
-                                    <p class="oubo_name_kana">オウボ&emsp;ハナコ</p>
-                                    <p class="oubo_name_kanji">応募&emsp;花子</p>
+                            <div class="w30per flex align-item_center">
+                                <div id="base_info_name" class="flex align-item_center">
+                                    <img src="../assets/images/person_circle_woman.svg" class="profile_icon inline-block" alt="アイコン">
+                                    <div class="oubo_name pl10 text-align_center">
+                                        <p class="oubo_name_kana">オウボ&emsp;ハナコ</p>
+                                        <p class="oubo_name_kanji">応募&emsp;花子</p>
+                                    </div>
                                 </div>
-                                <button id="btn_show-appli-history" class="btn-small btn_purple w100px ml30">応募履歴</button>
+                                <!-- <button id="btn_show-appli-history" class="btn-small btn_light-green w100px ml30">名前の修正</button> -->
+                                <button id="btn_show-appli-history" class="btn-small btn_purple w100px ml20">応募履歴</button>
                             </div>
                             <div class="oubo_status_header text-align_center flex justfy-content_center align-item_flex-end w20per">
                                 <p class="oubo_status_header_text inline-block">呼び込み中&emsp;</p>
                                 <p class="inline-block"><span>(</span>強制クローズまで<span class="color_red">&nbsp;3日&nbsp;</span>)</p>
                             </div>
-                            <div class="el-empty w20per"></div>
+                            <div class="el-empty w20per h50px"></div>
                         </div>
                         <div class="flex w100per">
                             <div class="oubo_base_info w40per mt20">
