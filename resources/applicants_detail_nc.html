@@ -15,6 +15,33 @@
         <!-- モーダルのオーバーレイ ここから -->
         <div class="overlay"></div>
         <!-- モーダルのオーバーレイ ここまで -->
+        <!-- 名前修正のモーダル ここから -->
+        <div id="modal_edit_name" class="modal modal_window w40per">
+            <div class="flex justfy-content_space-between">
+                <p class="content_block_title mb40">名前修正</p>
+                <div id="close-modal_regist-new-contact" class="my-parts"><span></span></div>
+            </div>
+            <div class="">
+                <div class="flex justfy-content_center">
+                    <p class="inline-block w20per">名前(カナ)</p>
+                    <div class="flex">
+                        <input type="text" class="inline-block" name="sei_kana" value="オウボ">
+                        <input type="text" class="inline-block ml20" name="mei_kana" value="ハナコ">
+                    </div>
+                </div>
+                <div class="flex justfy-content_center mt20">
+                    <p class="inline-block w20per">名前</p>
+                    <div class="flex">
+                        <input type="text" class="inline-block" name="sei_kanji" value="応募">
+                        <input type="text" class="inline-block ml20" name="mei_kanji" value="花子">
+                    </div>
+                </div>
+            </div>
+            <div class="flex justfy-content_center mt40 mb20">
+                <button id="close-modal_edit_name" class="btn-large btn_light-green w180px">修正する</button>
+            </div>
+        </div>
+        <!-- 名前修正のモーダル ここまで -->
         <!-- コンタクト履歴のモーダル ここから -->
         <div id="modal_regist-new-contact" class="modal modal_window">
             <div class="flex justfy-content_space-between">
@@ -99,7 +126,7 @@
                 </li>
                 <li class="flex">
                     <div class="w25per pa10">
-                        <p class="ml30">■ネット予約</p>
+                        <p class="ml30">■Webエントリー</p>
                     </div>
                     <div class="pa10 flex align-item_center">
                         <label for="book_online_1" class="checkbox-wrapper">
@@ -114,7 +141,7 @@
                 </li>
                 <li class="flex bgc_list-odd">
                     <div class="w25per pa10">
-                        <p class="ml30">■Webエントリー</p>
+                        <p class="ml30">■ネット予約</p>
                     </div>
                     <div class="pa10 flex align-item_center">
                         <label for="web_entry_1" class="checkbox-wrapper">
@@ -250,14 +277,14 @@
                                         <input type="text" name="reason_for_declining" class="ml10 w80per" value="取得済み">
                                     </td>
                                 </tr>
-                                <tr class="w100per">
+                                <!-- <tr class="w100per">
                                     <td class="w35per">
                                         <p class="pl10 list_left">派遣サービスへの申し込み意思</p>
                                     </td>
                                     <td class="w65per">
                                         <input type="text" name="" class="ml10 w80per" value="済">
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr class="w100per">
                                     <td class="w35per">
                                         <p class="pl10 list_left">姓</p>
@@ -292,6 +319,14 @@
                                 </tr>
                                 <tr class="w100per">
                                     <td class="w35per">
+                                        <p class="pl10 list_left">性別</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="女性">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
                                         <p class="pl10 list_left">生年月日</p>
                                     </td>
                                     <td class="w65per">
@@ -308,19 +343,10 @@
                                 </tr>
                                 <tr class="w100per">
                                     <td class="w35per">
-                                        <p class="pl10 list_left">性別</p>
-                                    </td>
-                                    <td class="w65per">
-                                        <input type="text" name="" class="ml10 w80per" value="女性">
-                                    </td>
-                                </tr>
-                                <tr class="w100per">
-                                    <td class="w35per">
                                         <p class="pl10 list_left">郵便番号</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w10per" value="103">
-                                        <input type="text" name="" class="ml10 w20per" value="0013">
+                                        <input type="text" id="zip_code" class="ml10 w20per" name="" value="103-0013" onKeyUp="AjaxZip3.zip2addr(this,'','prefecture','city');"/>
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -328,7 +354,7 @@
                                         <p class="pl10 list_left">都道府県</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w20per" value="東京都">
+                                        <input type="text" name="prefecture" class="ml10 w20per" value="東京都">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -336,7 +362,7 @@
                                         <p class="pl10 list_left">市区町村</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w80per" value="中央区日本橋人形町">
+                                        <input type="text" name="city" class="ml10 w80per" value="中央区日本橋人形町">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -357,18 +383,34 @@
                                 </tr>
                                 <tr class="w100per">
                                     <td class="w35per">
-                                        <p class="pl10 list_left">最寄り駅①</p>
+                                        <p class="pl10 list_left">最寄り駅①(沿線)</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w80per" value="人形町駅(東京メトロ日比谷線)">
+                                        <input type="text" name="" class="ml10 w80per" value="東京メトロ日比谷線">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
                                     <td class="w35per">
-                                        <p class="pl10 list_left">最寄り駅②</p>
+                                        <p class="pl10 list_left">最寄り駅①(駅名)</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w80per" value="水天宮前駅(東京メトロ半蔵門線)">
+                                        <input type="text" name="" class="ml10 w80per" value="人形町駅">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">最寄り駅②(沿線)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="東京メトロ半蔵門線">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">最寄り駅①(駅名)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="水天宮前駅">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -392,7 +434,7 @@
                                         <p class="pl10 list_left">電話番号(自宅)</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w80per" value="03-3333-3333">
+                                        <input type="text" id="tel-1" name="tel-1" class="ml10 w80per" value="03-3333-3333">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -400,18 +442,56 @@
                                         <p class="pl10 list_left">電話番号(携帯)</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w80per" value="090-3333-3333">
+                                        <input type="text" id="tel-2" name="tel-2" class="ml10 w80per" value="090-3333-3333">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
                                     <td class="w35per">
-                                        <p class="pl10 list_left">最終学歴</p>
+                                        <p class="pl10 list_left">最終学歴区分</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="" class="ml10 w80per" value="東京大学(2022年3月 卒業)">
+                                        <select class="ml10 w20per">
+                                            <option value="1">大学院</option>
+                                            <option value="2" selected>大学</option>
+                                            <option value="3">短大</option>
+                                            <option value="4">専門</option>
+                                            <option value="5">高校</option>
+                                            <option value="6">中学</option>
+                                        </select>
                                     </td>
                                 </tr>
-
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">卒業年月</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w40per" value="2022年3月">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">卒業区分</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <select class="ml10 w20per">
+                                            <option value="1" selected>卒業</option>
+                                            <option value="2">卒業見込み</option>
+                                            <option value="3">中退</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">見込みランク</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <select class="ml10 w80per">
+                                            <option value="1" selected>A：コールセンターOKかつフルタイムOK</option>
+                                            <option value="2">B：A・C以外(事務案件のみ希望含む）</option>
+                                            <option value="3">C：紹介不可(勤務条件に縛りのある人材、ご紹介自体が厳しい人材)</option>
+                                        </select>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -552,14 +632,20 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="panel_edit_area_2 tab-2_edit_area_2">
+                                <div class="panel_edit_area_2 tab-2_edit_area_2" style="max-height: 550px;">
                                     <table class="area_num_table w100per mt10">
                                         <tr class="w100per">
                                             <td class="w35per">
                                                 <p class="pl10 list_left">希望の雇用形態</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">派遣</p>
+                                                <select class="ml10 w20per">
+                                                    <option value="1" selected>派遣</option>
+                                                    <option value="2">紹介(パート)</option>
+                                                    <option value="3">紹介(正社員)</option>
+                                                    <option value="4">紹介予定派遣</option>
+                                                    <option value="5">不明</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -567,8 +653,7 @@
                                                 <p class="pl10 list_left">案内を控えてほしい施設・病院</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">応募病院</p>
-                                                <p class="pl10 list_right">応募ステーション</p>
+                                                <input type="text" id="" name="" class="ml10 w80per" value="応募病院、応募ステーション">
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -576,7 +661,7 @@
                                                 <p class="pl10 list_left">就業開始可能日</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">2023年04月01日</p>
+                                                <input type="text" id="" name="" class="ml10 w30per" value="2023年04月01日">
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -584,7 +669,40 @@
                                                 <p class="pl10 list_left">希望勤務可能日</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">月・火・水・木・金・土</p>
+                                                <div class="flex">
+                                                    <label for="mon" class="ml10 inline-block">
+                                                        <input type="checkbox" id="mon" name="" class="ml10" checked>
+                                                        <span class="pl10">月</span>
+                                                    </label>
+                                                    <label for="tue" class="ml20 inline-block">
+                                                        <input type="checkbox" id="tue" name="" class="ml10" checked>
+                                                        <span class="pl10">火</span>
+                                                    </label>
+                                                    <label for="wed" class="ml20 inline-block">
+                                                        <input type="checkbox" id="wed" name="" class="ml10" checked>
+                                                        <span class="pl10">水</span>
+                                                    </label>
+                                                    <label for="thu" class="ml20 inline-block">
+                                                        <input type="checkbox" id="thu" name="" class="ml10" checked>
+                                                        <span class="pl10">木</span>
+                                                    </label>
+                                                    <label for="fri" class="ml20 inline-block">
+                                                        <input type="checkbox" id="fri" name="" class="ml10" checked>
+                                                        <span class="pl10">金</span>
+                                                    </label>
+                                                    <label for="sat" class="ml20 inline-block">
+                                                        <input type="checkbox" id="sat" name="" class="ml10" checked>
+                                                        <span class="pl10">土</span>
+                                                    </label>
+                                                    <label for="sun" class="ml20 inline-block">
+                                                        <input type="checkbox" id="sun" name="" class="ml10">
+                                                        <span class="pl10">日</span>
+                                                    </label>
+                                                    <label for="holi" class="ml20 inline-block">
+                                                        <input type="checkbox" id="holi" name="" class="ml10">
+                                                        <span class="pl10">祝</span>
+                                                    </label>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -592,7 +710,13 @@
                                                 <p class="pl10 list_left">希望勤務日数</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">週5日</p>
+                                                <select class="ml10 w20per">
+                                                    <option value="5" selected>週5日</option>
+                                                    <option value="4">週4日</option>
+                                                    <option value="3">週3日</option>
+                                                    <option value="2">週2日</option>
+                                                    <option value="1">週1日</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -600,7 +724,24 @@
                                                 <p class="pl10 list_left">希望勤務時間</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">早番・日勤・遅番・夜勤</p>
+                                                <div class="flex">
+                                                    <label for="hayaban" class="ml10 inline-block">
+                                                        <input type="checkbox" id="hayaban" name="" class="ml10" checked>
+                                                        <span class="pl10">早番</span>
+                                                    </label>
+                                                    <label for="nikkin" class="ml20 inline-block">
+                                                        <input type="checkbox" id="nikkin" name="" class="ml10" checked>
+                                                        <span class="pl10">日勤</span>
+                                                    </label>
+                                                    <label for="osoban" class="ml20 inline-block">
+                                                        <input type="checkbox" id="osoban" name="" class="ml10">
+                                                        <span class="pl10">遅番</span>
+                                                    </label>
+                                                    <label for="yakin" class="ml20 inline-block">
+                                                        <input type="checkbox" id="yakin" name="" class="ml10">
+                                                        <span class="pl10">夜勤</span>
+                                                    </label>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -608,8 +749,7 @@
                                                 <p class="pl10 list_left">具体的希望時間</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">09:00～17:00</p>
-                                                <p class="pl10 list_right">17:00～25:00</p>
+                                                <input type="text" id="" name="" class="ml10 w30per" value="09:00～17:00">
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -617,7 +757,11 @@
                                                 <p class="pl10 list_left">残業可否</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">場合により可<span>(26時まで可能)</span></p>
+                                                <select class="ml10 w20per">
+                                                    <option value="5" selected>可</option>
+                                                    <option value="4">不可</option>
+                                                    <option value="3">場合により可</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -625,15 +769,29 @@
                                                 <p class="pl10 list_left">希望条件(時給)</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">1,600円～</p>
+                                                <select class="ml10 w20per">
+                                                    <option value="800">800円～</option>
+                                                    <option value="900">900円～</option>
+                                                    <option value="1000">1,000円～</option>
+                                                    <option value="1100">1,100円～</option>
+                                                    <option value="1200">1,200円～</option>
+                                                    <option value="1300" selected>1,300円～</option>
+                                                    <option value="1400">1,400円～</option>
+                                                    <option value="1500">1,500円～</option>
+                                                    <option value="1600">1,600円～</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
                                             <td class="w35per">
-                                                <p class="pl10 list_left">希望条件(通勤時間)</p>
+                                                <p class="pl10 list_left">希望通勤時間</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">自宅から30分以内</p>
+                                                <select class="ml10 w20per">
+                                                    <option value="1" selected>自宅から</option>
+                                                    <option value="2">最寄り駅から</option>
+                                                </select>
+                                                <input type="text" id="" name="" class="ml10 w10per" value="30">分以内
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -641,7 +799,16 @@
                                                 <p class="pl10 list_left">希望条件の優先順位(1位)</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">通勤距離・駅近</p>
+                                                <select id="priority_1" class="ml10 w30per">
+                                                    <option value="1">1.時間給・給与</option>
+                                                    <option value="2" selected>2.勤務時間・時間帯</option>
+                                                    <option value="3">3.休日</option>
+                                                    <option value="4">4.通勤距離・駅近</option>
+                                                    <option value="5">5.就業日数</option>
+                                                    <option value="6">6.職場環境</option>
+                                                    <option id="etc_1" value="7">7.その他</option>
+                                                </select>
+                                                <input type="text" id="priority_1_reason" name="" class="ml10 w60per unvisible" value="" placeholder="理由">
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -649,7 +816,16 @@
                                                 <p class="pl10 list_left">希望条件の優先順位(2位)</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">時間給・給与</p>
+                                                <select id="priority_2" class="ml10 w30per">
+                                                    <option value="1" selected>1.時間給・給与</option>
+                                                    <option value="2">2.勤務時間・時間帯</option>
+                                                    <option value="3">3.休日</option>
+                                                    <option value="4">4.通勤距離・駅近</option>
+                                                    <option value="5">5.就業日数</option>
+                                                    <option value="6">6.職場環境</option>
+                                                    <option id="etc_2" value="7">7.その他</option>
+                                                </select>
+                                                <input type="text" id="priority_2_reason" name="" class="ml10 w60per unvisible" value="" placeholder="理由">
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -657,15 +833,16 @@
                                                 <p class="pl10 list_left">希望条件の優先順位(3位)</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">就業日数</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
-                                                <p class="pl10 list_left">希望条件の優先順位(その他)</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">働き方や方針に柔軟性を持った環境</p>
+                                                <select id="priority_3" class="ml10 w30per">
+                                                    <option value="1">1.時間給・給与</option>
+                                                    <option value="2">2.勤務時間・時間帯</option>
+                                                    <option value="3">3.休日</option>
+                                                    <option value="4" selected>4.通勤距離・駅近</option>
+                                                    <option value="5">5.就業日数</option>
+                                                    <option value="6">6.職場環境</option>
+                                                    <option id="etc_3" value="7">7.その他</option>
+                                                </select>
+                                                <input type="text" id="priority_3_reason" name="" class="ml10 w60per unvisible" value="" placeholder="理由">
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -673,7 +850,88 @@
                                                 <p class="pl10 list_left">希望施設形態</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">特養&nbsp;/&nbsp;老健&nbsp;/&nbsp;サ高住&nbsp;/&nbsp;GH&nbsp;/&nbsp;デイ&nbsp;/&nbsp;訪問介護</p>
+                                                <div class="flex">
+                                                    <label for="keitai_0" class="w15per ml10 inline-block">
+                                                        <input type="checkbox" id="keitai_0" name="" class="ml10" checked>
+                                                        <span class="pl10">特養</span>
+                                                    </label>
+                                                    <label for="keitai_1" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_1" name="" class="ml10" checked>
+                                                        <span class="pl10">老健</span>
+                                                    </label>
+                                                    <label for="keitai_2" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_2" name="" class="ml10">
+                                                        <span class="pl10">有料</span>
+                                                    </label>
+                                                    <label for="keitai_3" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_3" name="" class="ml10">
+                                                        <span class="pl10">サ高住</span>
+                                                    </label>
+                                                </div>
+                                                <div class="flex mt5">
+                                                    <label for="keitai_4" class="w15per ml10 inline-block">
+                                                        <input type="checkbox" id="keitai_4" name="" class="ml10">
+                                                        <span class="pl10">GH</span>
+                                                    </label>
+                                                    <label for="keitai_5" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_5" name="" class="ml10">
+                                                        <span class="pl10">デイ</span>
+                                                    </label>
+                                                    <label for="keitai_6" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_6" name="" class="ml10" checked>
+                                                        <span class="pl10">ショート</span>
+                                                    </label>
+                                                    <label for="keitai_7" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_7" name="" class="ml10" checked>
+                                                        <span class="pl10">病院</span>
+                                                    </label>
+                                                </div>
+                                                <div class="flex mt5">
+                                                    <label for="keitai_8" class="w15per ml10 inline-block">
+                                                        <input type="checkbox" id="keitai_8" name="" class="ml10">
+                                                        <span class="pl10">診療</span>
+                                                    </label>
+                                                    <label for="keitai_9" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_9" name="" class="ml10">
+                                                        <span class="pl10">小多機</span>
+                                                    </label>
+                                                    <label for="keitai_10" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_10" name="" class="ml10">
+                                                        <span class="pl10">デイケア</span>
+                                                    </label>
+                                                    <label for="keitai_11" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_11" name="" class="ml10">
+                                                        <span class="pl10">障がい</span>
+                                                    </label>
+                                                </div>
+                                                <div class="flex mt5">
+                                                    <label for="keitai_12" class="w15per ml10 inline-block">
+                                                        <input type="checkbox" id="keitai_12" name="" class="ml10" checked>
+                                                        <span class="pl10">軽費</span>
+                                                    </label>
+                                                    <label for="keitai_13" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_13" name="" class="ml10" checked>
+                                                        <span class="pl10">地域包括</span>
+                                                    </label>
+                                                    <label for="keitai_14" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_14" name="" class="ml10">
+                                                        <span class="pl10">訪問介護</span>
+                                                    </label>
+                                                    <label for="keitai_15" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_15" name="" class="ml10">
+                                                        <span class="pl10">訪問看護</span>
+                                                    </label>
+                                                </div>
+                                                <div class="flex mt5">
+                                                    <label for="keitai_16" class="w15per ml10 inline-block">
+                                                        <input type="checkbox" id="keitai_16" name="" class="ml10">
+                                                        <span class="pl10">ケア</span>
+                                                    </label>
+                                                    <label for="keitai_17" class="w15per ml20 inline-block">
+                                                        <input type="checkbox" id="keitai_17" name="" class="ml10">
+                                                        <span class="pl10">訪入浴</span>
+                                                    </label>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -681,7 +939,26 @@
                                                 <p class="pl10 list_left">希望交通手段</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">公共交通機関&nbsp;/&nbsp;自転車&nbsp;/&nbsp;徒歩</p>
+                                                <div class="flex">
+                                                    <label for="by_public_transport" class="w25per ml10 inline-block">
+                                                        <input type="checkbox" id="by_public_transport" name="" class="ml10" checked>
+                                                        <span class="pl10">公共交通機関</span>
+                                                    </label>
+                                                    <label for="by_car" class="w25per ml20 inline-block">
+                                                        <input type="checkbox" id="by_car" name="" class="ml10">
+                                                        <span class="pl10">車</span>
+                                                    </label>
+                                                </div>
+                                                <div class="flex mt5">
+                                                    <label for="by_bicycle" class="w25per ml10 inline-block">
+                                                        <input type="checkbox" id="by_bicycle" name="" class="ml10" checked>
+                                                        <span class="pl10">自転車</span>
+                                                    </label>
+                                                    <label for="by_walking" class="w25per ml20 inline-block">
+                                                        <input type="checkbox" id="by_walking" name="" class="ml10" checked>
+                                                        <span class="pl10">徒歩</span>
+                                                    </label>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -689,83 +966,98 @@
                                                 <p class="pl10 list_left">その他希望事項</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">公共交通機関&nbsp;/&nbsp;自転車&nbsp;/&nbsp;徒歩</p>
+                                                
+                                                <textarea class="ml10 w80per"></textarea>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="panel_edit_area_2 tab-3_edit_area_2">
+                                <div class="panel_edit_area_2 tab-3_edit_area_2" style="max-height: 550px;">
                                     <table class="area_num_table w100per mt10">
-                                        <tr class="w100per">
+                                        <tr class="w100per" id="corp_name">
                                             <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(企業名)</p>
+                                                <p class="pl10 list_left">職務経歴(1)(企業名)</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">応募ステーション</p>
+                                                <input type="text" id="" name="" class="ml10 w80per" value="応募ステーション">
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per" id="office_name">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴(1)(事業所)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <input type="text" id="" name="" class="ml10 w80per" value="応募ステーション(日本橋)">
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per" id="job_period">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴(1)(期間)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <input type="text" id="" name="" class="ml10 w40per" value="2022年4月～2022年9月">
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per" id="employment_type">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴(1)(雇用形態)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <select class="ml10 w20per">
+                                                    <option value="1" selected>正社員</option>
+                                                    <option value="2">契約社員</option>
+                                                    <option value="3">パート/アルバイト</option>
+                                                    <option value="4">派遣スタッフ</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per" id="job_duties">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴(1)(職務内容)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <textarea class="ml10 w80per">・患者のお食事の準備&#13;・洗濯や衣服の下着などを整える&#13;・患者の介護を支援する&#13;・抗生物質や薬の服用を行う&#13;・いつも温かい気持ちを患者さんに提供する&#13;・病院からの注文に応じて、必要なものを提供する&#13;・概日などの様々な計画を立て、患者の満足度を向上させる</textarea>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per" id="salary_type">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴(1)(時給/月給)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <select class="ml10 w20per">
+                                                    <option value="1" selected>月給</option>
+                                                    <option value="2">時給</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per" id="salary_quantity">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴(1)(時給/月給)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <input type="text" id="" name="" class="ml10 w20per" value="200,000円">
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per" id="leaving_job">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">職務経歴(1)(退職理由)</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <select class="ml10 w20per">
+                                                    <option value="1" selected>自己都合</option>
+                                                    <option value="2">会社都合</option>
+                                                    <option value="3">期間限定</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
                                             <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(事業所)</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">応募ステーション(日本橋)</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(期間)</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">2022年4月～2022年9月</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(雇用形態)</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">正社員</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(職務内容)</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">
-                                                    ・患者のお食事の準備<br>
-                                                    ・洗濯や衣服の下着などを整える<br>
-                                                    ・患者の介護を支援する<br>
-                                                    ・抗生物質や薬の服用を行う<br>
-                                                    ・いつも温かい気持ちを患者さんに提供する<br>
-                                                    ・病院からの注文に応じて、必要なものを提供する<br>
-                                                    ・概日などの様々な計画を立て、患者の満足度を向上させる<br>
+                                                <p class="pl40 list_left">
+                                                    <span id="btn_add_work-experience" class="btn-small btn_add_work-experience">職務経歴を追加する</span>
                                                 </p>
                                             </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(時給/月給)</p>
-                                            </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">月給</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(時給/月給)</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">200,000円</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
-                                                <p class="pl10 list_left">職務経歴①(退職理由)</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">自己都合</p>
+
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -773,7 +1065,7 @@
                                                 <p class="pl10 list_left">介護職・看護助手の経験年数</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">1年</p>
+                                                <input type="text" id="" name="" class="ml10 w5per" value="1">年
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -781,10 +1073,7 @@
                                                 <p class="pl10 list_left">勤務経験のある施設</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">
-                                                    ・児童福祉施設<br>
-                                                    ・保育施設<br>
-                                                </p>
+                                                <input type="text" id="" name="" class="ml10 w80per" value="児童福祉施設、保育施設">
                                             </td>
                                         </tr>
                                     </table>
@@ -1422,14 +1711,14 @@
                                                 <p class="pl10 list_right">取得済み</p>
                                             </td>
                                         </tr>
-                                        <tr class="w100per">
+                                        <!-- <tr class="w100per">
                                             <td class="w35per">
                                                 <p class="pl10 list_left">派遣サービスへの申し込み意思</p>
                                             </td>
                                             <td class="w65per">
                                                 <p class="pl10 list_right">済</p>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                         <tr class="w100per">
                                             <td class="w35per">
                                                 <p class="pl10 list_left">姓(セイ)</p>
@@ -1448,18 +1737,18 @@
                                         </tr>
                                         <tr class="w100per">
                                             <td class="w35per">
-                                                <p class="pl10 list_left">生年月日</p>
-                                            </td>
-                                            <td class="w65per">
-                                                <p class="pl10 list_right">2000年01月01日<span>(応募時&nbsp;23歳&nbsp;)</span></p>
-                                            </td>
-                                        </tr>
-                                        <tr class="w100per">
-                                            <td class="w35per">
                                                 <p class="pl10 list_left">性別</p>
                                             </td>
                                             <td class="w65per">
                                                 <p class="pl10 list_right">女性</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w100per">
+                                            <td class="w35per">
+                                                <p class="pl10 list_left">生年月日</p>
+                                            </td>
+                                            <td class="w65per">
+                                                <p class="pl10 list_right">2000年01月01日<span>(応募時&nbsp;23歳&nbsp;)</span></p>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -2273,11 +2562,14 @@
                 <div>Copyright(c) NEO CARRER Corporation. All Rights Reserved</div>
             </footer>
         </div>
-
+        <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.1.10/libphonenumber-js.min.js"></script>
         <script src="../assets/js/select-tab.js"></script>
         <script src="../assets/js/modal-oubo_detail.js"></script>
         <script src="../assets/js/visible.js"></script>
         <script src="../assets/js/hamburger-menu.js"></script>
         <script src="../assets/js/checkbox-all.js"></script>
+        <script src="../assets/js/format_phone_number.js"></script>
+        <script src="../assets/js/etc_reason_textbox.js"></script>
     </body>
 </html>

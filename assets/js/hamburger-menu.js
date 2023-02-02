@@ -1,32 +1,3 @@
-// メニュー展開時に背景を固定
-// const backgroundFix = (bool) => {
-//   const scrollingElement = () => {
-//     const browser = window.navigator.userAgent.toLowerCase();
-//     if ("scrollingElement" in document) return document.scrollingElement;
-//     return document.documentElement;
-//   };
-
-//   const scrollY = bool
-//     ? scrollingElement().scrollTop
-//     : parseInt(document.body.style.top || "0");
-
-//   const fixedStyles = {
-//     height: "100vh",
-//     position: "fixed",
-//     top: `${scrollY * -1}px`,
-//     left: "0",
-//     width: "100vw"
-//   };
-
-//   Object.keys(fixedStyles).forEach((key) => {
-//     document.body.style[key] = bool ? fixedStyles[key] : "";
-//   });
-
-//   if (!bool) {
-//     window.scrollTo(0, scrollY * -1);
-//   }
-// };
-
 // 変数定義
 const CLASS = "-active";
 let flg = false;

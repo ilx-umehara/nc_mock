@@ -75,7 +75,7 @@ input[type="text"]{
     padding: 3px 10px;
 }
 select,option{
-    height:24px;
+    height:32px;
     border-radius: 5px;
     border: 1px solid #CCCCCC;
     color: #0047a4;
@@ -85,6 +85,7 @@ textarea {
     resize: none;
     border-radius: 5px;
     border: 1px solid #CCCCCC;
+    color: #0047a4;
     min-width: 500px;
     max-width: 600px;
     min-height: 200px;

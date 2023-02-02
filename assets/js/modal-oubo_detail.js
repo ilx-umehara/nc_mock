@@ -14,9 +14,20 @@ const btnSendCorrectionRequest = document.getElementById('btn_send-correction-re
 const modalSendCorrectionRequest = document.getElementById('modal_send-correction-request');
 const closeBtnModalSendCorrectionRequest = document.getElementById('close-modal_send-correction-request');
 
+const btnEditName = document.getElementById('base_info_name');
+const modalEditName = document.getElementById('modal_edit_name');
+const closeBtnModalEditName = document.getElementById('close-modal_edit_name');
+
 const closeBtn = document.querySelector('.close');
 const overlay = document.querySelector('.overlay');
 
+
+btnEditName.addEventListener('click', (e) => {
+  e.preventDefault();
+  modalEditName.classList.add('active');
+  overlay.classList.add('active');
+  console.log('クリックしました。');
+});
 btnRegistNewContact.addEventListener('click', (e) => {
   e.preventDefault();
   modalRegistNewContact.classList.add('active');
@@ -41,7 +52,18 @@ btnSendCorrectionRequest.addEventListener('click', (e) => {
   overlay.classList.add('active');
 });
 
+
+closeBtnModalEditName.addEventListener('click', function(){
+  modalEditName.classList.remove('active');
+  modalRegistNewContact.classList.remove('active');
+  modalShowApplHistory.classList.remove('active');
+  modalEditEntryInfo.classList.remove('active');
+  modalSendCorrectionRequest.classList.remove('active');
+  overlay.classList.remove('active');
+  console.log('クリックしました。');
+});
 closeBtnModalRegistNewContact.addEventListener('click', function(){
+  modalEditName.classList.remove('active');
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
@@ -50,6 +72,7 @@ closeBtnModalRegistNewContact.addEventListener('click', function(){
   console.log('クリックしました。');
 });
 closeBtnModalApplHistory.addEventListener('click', function(){
+  modalEditName.classList.remove('active');
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
@@ -58,6 +81,7 @@ closeBtnModalApplHistory.addEventListener('click', function(){
   console.log('クリックしました。');
 });
 closeBtnModalEditEntryInfo.addEventListener('click', function(){
+  modalEditName.classList.remove('active');
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
@@ -66,6 +90,7 @@ closeBtnModalEditEntryInfo.addEventListener('click', function(){
   console.log('クリックしました。');
 });
 closeBtnModalSendCorrectionRequest.addEventListener('click', function(){
+  modalEditName.classList.remove('active');
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
@@ -74,6 +99,7 @@ closeBtnModalSendCorrectionRequest.addEventListener('click', function(){
   console.log('クリックしました。');
 });
 overlay.addEventListener('click', function() {
+  modalEditName.classList.remove('active');
   modalRegistNewContact.classList.remove('active');
   modalShowApplHistory.classList.remove('active');
   modalEditEntryInfo.classList.remove('active');
