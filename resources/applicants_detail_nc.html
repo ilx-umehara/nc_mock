@@ -19,7 +19,7 @@
         <div id="modal_edit_name" class="modal modal_window w40per">
             <div class="flex justfy-content_space-between">
                 <p class="content_block_title mb40">名前修正</p>
-                <div id="close-modal_regist-new-contact" class="my-parts"><span></span></div>
+                <div id="close_1" class="my-parts close"><span></span></div>
             </div>
             <div class="">
                 <div class="flex justfy-content_center">
@@ -42,142 +42,12 @@
             </div>
         </div>
         <!-- 名前修正のモーダル ここまで -->
-        <!-- コンタクト履歴のモーダル ここから -->
-        <div id="modal_regist-new-contact" class="modal modal_window">
-            <div class="flex justfy-content_space-between">
-                <p class="content_block_title mb40">コンタクト入力</p>
-                <div id="close-modal_regist-new-contact" class="my-parts"><span></span></div>
-            </div>
-            <ul class="input_form_contact">
-                <li class="flex bgc_list-odd">
-                    <div class="w25per pa10">
-                        <p class="ml30">■アクション</p>
-                    </div>
-                    <div class="pa10 flex">
-                        <label for="action_1" class="options">
-                            <input type="radio" id="action_1" name="contact_action" value="1">コール(未接触)
-                        </label>
-                        <label for="action_2" class="options ml30">
-                            <input type="radio" id="action_2" name="contact_action" value="2">コール(接触)
-                        </label>
-                        <label for="action_3" class="options ml30">
-                            <input type="radio" id="action_3" name="contact_action" value="3">入電
-                        </label>
-                        <label for="action_4" class="options ml30">
-                            <input type="radio" id="action_4" name="contact_action" value="4">メール送信
-                        </label>
-                        <label for="action_5" class="options ml30">
-                            <input type="radio" id="action_5" name="contact_action" value="5">メール受信
-                        </label>
-                        <label for="action_6" class="options ml30">
-                            <input type="radio" id="action_6" name="contact_action" value="6">その他(対面など)
-                        </label>
-                    </div>
-                </li>
-                <li class="flex">
-                    <div class="w25per pa10">
-                        <p class="ml30">■進捗</p>
-                    </div>
-                    <div class="pa10">
-                        <div class="pb10 flex">
-                            <label for="progress_1" class="options">
-                                <input type="radio" id="progress_1" name="contact_progress" value="1">未対応
-                            </label>
-                            <label for="progress_2" class="options ml30">
-                                <input type="radio" id="progress_2" name="contact_progress" value="2">呼び込み中
-                            </label>
-                            <label for="progress_3" class="options ml30">
-                                <input type="radio" id="progress_3" name="contact_progress" value="3">登録完了
-                            </label>
-                            <label for="progress_4" class="options ml30">
-                                <input type="radio" id="progress_4" name="contact_progress" value="4">その他(対面など)
-                            </label>
-                        </div>
-                        <div class="pb10 flex">
-                            <label for="progress_5" class="options">
-                                <input type="radio" id="progress_5" name="contact_progress" value="5">辞退&emsp;
-                            </label>
-                            &emsp;理由：<input type="text" name="reason_for_declining" class="w300px">
-                            
-                        </div>
-                        <div class="pb10 flex">
-                            <label for="progress_6" class="options">
-                                <input type="radio" id="progress_6" name="contact_progress" value="6">対象外
-                            </label>
-                            &emsp;理由：<input type="text" name="reason_for_exclusion" class="w300px">
-                        </div>
-                    </div>
-                </li>
-                <li class="flex bgc_list-odd">
-                    <div class="w25per pa10">
-                        <p class="ml30">■本人確認書類</p>
-                    </div>
-                    <div class="pa10 flex">
-                        <label for="identification_1">
-                            <input type="radio" id="identification_1" name="identification_documents" value="1">未対応(依頼前)
-                        </label>
-                        <label for="identification_2" class="options ml30">
-                            <input type="radio" id="identification_2" name="identification_documents" value="2">提示依頼済み
-                        </label>
-                        <label for="identification_3" class="options ml30">
-                            <input type="radio" id="identification_3" name="identification_documents" value="3">提示・確認済み
-                        </label>
-                    </div>
-                </li>
-                <li class="flex">
-                    <div class="w25per pa10">
-                        <p class="ml30">■Webエントリー</p>
-                    </div>
-                    <div class="pa10 flex align-item_center">
-                        <label for="book_online_1" class="checkbox-wrapper">
-                            <input type="checkbox" id="book_online_1" name="book_online" class="checkbox-input" value="1">
-                            <span class="checkbox-tile">初回版再送</span>
-                        </label>
-                        <label for="book_online_2" class="checkbox-wrapper ml30">
-                            <input type="checkbox" id="book_online_2" name="book_online" class="checkbox-input" value="2">
-                            <span class="checkbox-tile">追加版送付</span>
-                        </label>
-                    </div>
-                </li>
-                <li class="flex bgc_list-odd">
-                    <div class="w25per pa10">
-                        <p class="ml30">■ネット予約</p>
-                    </div>
-                    <div class="pa10 flex align-item_center">
-                        <label for="web_entry_1" class="checkbox-wrapper">
-                            <input type="checkbox" id="web_entry_1" name="web_entry" class="checkbox-input" value="1">
-                            <span class="checkbox-tile">案内メール送信</span>
-                        </label>
-                        <label for="web_entry_2" class="checkbox-wrapper ml30">
-                            <input type="checkbox" id="web_entry_2" name="web_entry" class="checkbox-input" value="2">
-                            <span class="checkbox-tile">代理予約</span>
-                        </label>
-                        <label for="web_entry_3" class="checkbox-wrapper ml30">
-                            <input type="checkbox" id="web_entry_3" name="web_entry" class="checkbox-input" value="3">
-                            <span class="checkbox-tile">汎用メール送信</span>
-                        </label>
-                    </div>
-                </li>
-                <li class="flex">
-                    <div class="w25per pa10">
-                        <p class="ml30">■コミュニケーション</p>
-                    </div>
-                    <div class="pa10">
-                        <textarea cols="40" rows="10"></textarea>
-                    </div>
-                </li>
-            </ul>
-            <div class="flex justfy-content_center mt20 mb20">
-                <button id="close-modal_regist-new-contact" class="btn-large btn_light-green w180px">登録する</button>
-            </div>
-        </div>
-        <!-- コンタクト履歴のモーダル ここまで -->
         <!-- 応募履歴のモーダル ここから -->
         <div id="modal_show-appli-history" class="modal modal_window">
             <div class="flex justfy-content_space-between">
                 <p class="content_block_title mb40">応募履歴一覧</p>
                 <!-- <button id="close-modal_show-appli-history" class="close-modal_show-appli-history"></button> -->
-                <div id="close-modal_show-appli-history" class="my-parts"><span></span></div>
+                <div id="close_2" class="my-parts close"><span></span></div>
             </div>
             <table class="appli-history_table w100per">
                 <thead>
@@ -256,7 +126,7 @@
         <div id="modal_edit-entry-info" class="modal modal_window">
             <div class="flex justfy-content_space-between">
                 <p class="content_block_title mb40">エントリー情報編集</p>
-                <div id="close-modal_edit-entry-info" class="my-parts"><span></span></div>
+                <div id="close_3" class="my-parts close"><span></span></div>
             </div>
             <div class="tab-panel_edit mt20 w100per">
                 <ul class="tab-group_edit">
@@ -346,7 +216,7 @@
                                         <p class="pl10 list_left">郵便番号</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" id="zip_code" class="ml10 w20per" name="" value="103-0013" onKeyUp="AjaxZip3.zip2addr(this,'','prefecture','city');"/>
+                                        <input type="text" id="zip_code" class="ml10 w20per" name="" value="103-0013" onKeyUp="AjaxZip3.zip2addr(this,'','prefecture-1','city-1');"/>
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -354,7 +224,7 @@
                                         <p class="pl10 list_left">都道府県</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="prefecture" class="ml10 w20per" value="東京都">
+                                        <input type="text" name="prefecture-1" class="ml10 w20per" value="東京都">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -362,7 +232,7 @@
                                         <p class="pl10 list_left">市区町村</p>
                                     </td>
                                     <td class="w65per">
-                                        <input type="text" name="city" class="ml10 w80per" value="中央区日本橋人形町">
+                                        <input type="text" name="city-1" class="ml10 w80per" value="中央区日本橋人形町">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1085,7 +955,11 @@
                                                 <p class="pl10 list_left">三大介助の抵抗有無</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">わからない</p>
+                                                <select class="ml10 w20per">
+                                                    <option value="1">あり</option>
+                                                    <option value="2" selected>なし</option>
+                                                    <option value="3">わからない</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -1093,7 +967,11 @@
                                                 <p class="pl10 list_left">レクリエーションの対応可否</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">可</p>
+                                                <select class="ml10 w20per">
+                                                    <option value="1" selected>可</option>
+                                                    <option value="2">不可</option>
+                                                    <option value="3">わからない</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -1101,7 +979,13 @@
                                                 <p class="pl10 list_left">調理補助の対応可否</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">メニューが決まっており、材料もそろっている状態での調理であれば対応可能</p>
+                                                <select class="ml10 w80per">
+                                                    <option value="1">不可</option>
+                                                    <option value="2">湯銭レベルであれば可能</option>
+                                                    <option value="3" selected>メニューが決まっており、材料もそろっている状態での調理であれば対応可能</option>
+                                                    <option value="4">献立作りから対応可能</option>
+                                                    <option value="5">わからない</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -1109,7 +993,13 @@
                                                 <p class="pl10 list_left">送迎業務の対応可否</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">送迎で使用することが多いバンタイプのお車も対応可能</p>
+                                                <select class="ml10 w80per">
+                                                    <option value="1">不可</option>
+                                                    <option value="2">軽自動車であれば対応可能</option>
+                                                    <option value="3">普通車であれば対応可能（②も対応可能）</option>
+                                                    <option value="4" selected>送迎で使用することが多いバンタイプのお車も対応可能(②～③も対応可能)</option>
+                                                    <option value="5">わからない</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -1117,11 +1007,7 @@
                                                 <p class="pl10 list_left">介護職を選んだ理由</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">
-                                                    ・自らの力で支えられる幸せを感じる<br>
-                                                    ・毎日実感できる役割の拡大<br>
-                                                    ・介護を通して役立った人々に喜びを与えられる<br>
-                                                </p>
+                                                <textarea class="ml10 w80per">・自らの力で支えられる幸せを感じる&#13;・毎日実感できる役割の拡大&#13;・介護を通して役立った人々に喜びを与えられる</textarea>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -1129,11 +1015,7 @@
                                                 <p class="pl10 list_left">仕事探しをしている理由</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">
-                                                    ・家族に何かを貢献する理由<br>
-                                                    ・自身のスキルを生かすため<br>
-                                                    ・将来性のある職業を求める<br>
-                                                </p>
+                                                <textarea class="ml10 w80per">・家族に何かを貢献する理由&#13;・自身のスキルを生かすため&#13;・将来性のある職業を求める</textarea>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -1141,7 +1023,10 @@
                                                 <p class="pl10 list_left">車両任意保険加入状況</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">加入済</p>
+                                                <select class="ml10 w20per">
+                                                    <option value="1" selected>加入済</option>
+                                                    <option value="2">未加入</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr class="w100per">
@@ -1149,8 +1034,7 @@
                                                 <p class="pl10 list_left">電話の繋がりやすい時間</p>
                                             </td>
                                             <td class="w65per">
-                                                <p class="pl10 list_right">12:00～13:00</p>
-                                                <p class="pl10 list_right">18:00～21:00</p>
+                                                <textarea class="ml10 w80per">12:00～13:00&#13;18:00～21:00</textarea>
                                             </td>
                                         </tr>
                                     </table>
@@ -1166,7 +1050,15 @@
                                         <p class="pl10 list_left">緊急連絡先(名前)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">応募一郎(オウボイチロウ)</p>
+                                        <input type="text" name="" class="ml10 w80per" value="応募一郎">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">緊急連絡先(名前カナ)</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="オウボイチロウ">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1174,7 +1066,7 @@
                                         <p class="pl10 list_left">緊急連絡先(電話番号)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">090-9876-5432</p>
+                                        <input type="text" id="tel-3" name="tel-3" class="ml10 w80per" value="025-3333-3333">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1182,7 +1074,7 @@
                                         <p class="pl10 list_left">緊急連絡先(郵便番号)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">〒951-8068</p>
+                                        <input type="text" id="zip_code" class="ml10 w20per" name="" value="103-0013" onKeyUp="AjaxZip3.zip2addr(this,'','prefecture-2','city-2');"/>
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1190,7 +1082,7 @@
                                         <p class="pl10 list_left">緊急連絡先(都道府県)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">新潟県</p>
+                                        <input type="text" name="prefecture-2" class="ml10 w20per" value="新潟県">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1198,7 +1090,7 @@
                                         <p class="pl10 list_left">緊急連絡先(市区町村)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">新潟市中央区</p>
+                                        <input type="text" name="city-2" class="ml10 w80per" value="新潟市中央区">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1206,7 +1098,7 @@
                                         <p class="pl10 list_left">緊急連絡先(番地)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">上大川前通三番町26-7</p>
+                                        <input type="text" name="" class="ml10 w80per" value="3-26-7">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1214,7 +1106,7 @@
                                         <p class="pl10 list_left">緊急連絡先(建物名)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">BUENA上大川前通3-II 307</p>
+                                        <input type="text" name="" class="ml10 w80per" value="BUENA上大川前通3-II 307">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1222,7 +1114,7 @@
                                         <p class="pl10 list_left">緊急連絡先(続柄)</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">実父</p>
+                                        <input type="text" name="" class="ml10 w80per" value="実父">
                                     </td>
                                 </tr>
                                 <tr class="w100per">
@@ -1230,7 +1122,24 @@
                                         <p class="pl10 list_left">給与口座同意の有無</p>
                                     </td>
                                     <td class="w65per">
-                                        <p class="pl10 list_right">有</p>
+                                        <input type="radio" name="salary_agree" class="ml20" selected>有
+                                        <input type="radio" name="salary_agree" class="ml10">無
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">銀行名</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="三菱UFJ銀行">
+                                    </td>
+                                </tr>
+                                <tr class="w100per">
+                                    <td class="w35per">
+                                        <p class="pl10 list_left">支店名</p>
+                                    </td>
+                                    <td class="w65per">
+                                        <input type="text" name="" class="ml10 w80per" value="本店">
                                     </td>
                                 </tr>
                             </table>
@@ -1318,7 +1227,7 @@
         <div id="modal_send-correction-request" class="modal modal_window">
             <div class="flex justfy-content_space-between">
                 <p class="content_block_title mb40">修正依頼の送信</p>
-                <div id="close-modal_send-correction-request" class="my-parts"><span></span></div>
+                <div id="close_4" class="my-parts close"><span></span></div>
             </div>
             <div class="flex">
                 <div class="pl40">
@@ -1396,12 +1305,141 @@
                     </div>
                 </div>
                 <div class="flex justfy-content_space-around mt20 mb20">
-                    <button id="close-modal_edit-entry-info" class="btn-large btn_light-green w180px">送信する</button>
+                    <button id="close-modal_send-correction-request" class="btn-large btn_light-green w180px">送信する</button>
                 </div>
             </div>
         </div>
         <!-- 修正依頼の送信のモーダル ここまで -->
-
+        <!-- コンタクト履歴のモーダル ここから -->
+        <div id="modal_regist-new-contact" class="modal modal_window">
+            <div class="flex justfy-content_space-between">
+                <p class="content_block_title mb40">コンタクト入力</p>
+                <div id="close_5" class="my-parts close"><span></span></div>
+            </div>
+            <ul class="input_form_contact">
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■アクション</p>
+                    </div>
+                    <div class="pa10 flex">
+                        <label for="action_1" class="options">
+                            <input type="radio" id="action_1" name="contact_action" value="1">コール(未接触)
+                        </label>
+                        <label for="action_2" class="options ml30">
+                            <input type="radio" id="action_2" name="contact_action" value="2">コール(接触)
+                        </label>
+                        <label for="action_3" class="options ml30">
+                            <input type="radio" id="action_3" name="contact_action" value="3">入電
+                        </label>
+                        <label for="action_4" class="options ml30">
+                            <input type="radio" id="action_4" name="contact_action" value="4">メール送信
+                        </label>
+                        <label for="action_5" class="options ml30">
+                            <input type="radio" id="action_5" name="contact_action" value="5">メール受信
+                        </label>
+                        <label for="action_6" class="options ml30">
+                            <input type="radio" id="action_6" name="contact_action" value="6">その他(対面など)
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■進捗</p>
+                    </div>
+                    <div class="pa10">
+                        <div class="pb10 flex">
+                            <label for="progress_1" class="options">
+                                <input type="radio" id="progress_1" name="contact_progress" value="1">未対応
+                            </label>
+                            <label for="progress_2" class="options ml30">
+                                <input type="radio" id="progress_2" name="contact_progress" value="2">呼び込み中
+                            </label>
+                            <label for="progress_3" class="options ml30">
+                                <input type="radio" id="progress_3" name="contact_progress" value="3">登録完了
+                            </label>
+                            <label for="progress_4" class="options ml30">
+                                <input type="radio" id="progress_4" name="contact_progress" value="4">その他(対面など)
+                            </label>
+                        </div>
+                        <div class="pb10 flex">
+                            <label for="progress_5" class="options">
+                                <input type="radio" id="progress_5" name="contact_progress" value="5">辞退&emsp;
+                            </label>
+                            &emsp;理由：<input type="text" name="reason_for_declining" class="w300px">
+                            
+                        </div>
+                        <div class="pb10 flex">
+                            <label for="progress_6" class="options">
+                                <input type="radio" id="progress_6" name="contact_progress" value="6">対象外
+                            </label>
+                            &emsp;理由：<input type="text" name="reason_for_exclusion" class="w300px">
+                        </div>
+                    </div>
+                </li>
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■本人確認書類</p>
+                    </div>
+                    <div class="pa10 flex">
+                        <label for="identification_1">
+                            <input type="radio" id="identification_1" name="identification_documents" value="1">未対応(依頼前)
+                        </label>
+                        <label for="identification_2" class="options ml30">
+                            <input type="radio" id="identification_2" name="identification_documents" value="2">提示依頼済み
+                        </label>
+                        <label for="identification_3" class="options ml30">
+                            <input type="radio" id="identification_3" name="identification_documents" value="3">提示・確認済み
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■Webエントリー</p>
+                    </div>
+                    <div class="pa10 flex align-item_center">
+                        <label for="book_online_1" class="checkbox-wrapper">
+                            <input type="checkbox" id="book_online_1" name="book_online" class="checkbox-input" value="1">
+                            <span class="checkbox-tile">初回版再送</span>
+                        </label>
+                        <label for="book_online_2" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="book_online_2" name="book_online" class="checkbox-input" value="2">
+                            <span class="checkbox-tile">追加版送付</span>
+                        </label>
+                    </div>
+                </li>
+                <li class="flex bgc_list-odd">
+                    <div class="w25per pa10">
+                        <p class="ml30">■ネット予約</p>
+                    </div>
+                    <div class="pa10 flex align-item_center">
+                        <label for="web_entry_1" class="checkbox-wrapper">
+                            <input type="checkbox" id="web_entry_1" name="web_entry" class="checkbox-input" value="1">
+                            <span class="checkbox-tile">案内メール送信</span>
+                        </label>
+                        <label for="web_entry_2" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="web_entry_2" name="web_entry" class="checkbox-input" value="2">
+                            <span class="checkbox-tile">代理予約</span>
+                        </label>
+                        <label for="web_entry_3" class="checkbox-wrapper ml30">
+                            <input type="checkbox" id="web_entry_3" name="web_entry" class="checkbox-input" value="3">
+                            <span class="checkbox-tile">汎用メール送信</span>
+                        </label>
+                    </div>
+                </li>
+                <li class="flex">
+                    <div class="w25per pa10">
+                        <p class="ml30">■コミュニケーション</p>
+                    </div>
+                    <div class="pa10">
+                        <textarea cols="40" rows="10"></textarea>
+                    </div>
+                </li>
+            </ul>
+            <div class="flex justfy-content_center mt20 mb20">
+                <button id="close-modal_regist-new-contact" class="btn-large btn_light-green w180px">登録する</button>
+            </div>
+        </div>
+        <!-- コンタクト履歴のモーダル ここまで -->
         <div class="wrapper">
             <header class="header">
                 <div class="header__inner">
